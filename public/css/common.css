@@ -19,3 +19,8 @@ a.headerBanner:hover {
     border-left: black 2pt solid;
     border-right: black 2pt solid;
 }
+
+footer {
+    position: absolute;
+    bottom: 0pt;
+}
