@@ -1,0 +1,21 @@
+.headerBanner {
+    align-content: center;
+    text-align: center;
+    background-color: lightgreen;
+    font-size: 20pt;
+}
+
+a.headerBanner {
+    color: black;
+    padding: 10pt;
+    border-bottom: black 2pt solid;
+}
+
+a.headerBanner:hover {
+    text-decoration: none;
+}
+
+#middleHeaderLink {
+    border-left: black 2pt solid;
+    border-right: black 2pt solid;
+}
