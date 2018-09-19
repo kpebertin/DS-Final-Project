@@ -1,0 +1,30 @@
+h2 {
+    text-align: center;
+}
+
+img {
+    border: 1pt solid black;
+}
+
+.aHalf {
+    height: calc(50% - 23px);
+}
+
+.inHalf {
+    height: 100%;
+}
+
+html, body, .mainBody {
+    height: 100%;
+}
+
+main {
+    height: calc(100% - 69px);
+}
+
+table, tr,td, th {
+    border: solid black 1pt;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
