@@ -1,25 +1,18 @@
-.headerBanner {
-    align-content: center;
+.companyLogo {
+    width: auto;
+    height: 100%;
+    border: 2px black solid;
+    max-height: 125px;
+}
+
+#logoHeader {
     text-align: center;
-    background-color: lightgreen;
-    font-size: 20pt;
 }
 
-a.headerBanner {
-    color: black;
-    padding: 10pt;
-    border-bottom: black 2pt solid;
+#nonLogoHeader {
+    text-align: center;
 }
 
-a.headerBanner:hover {
-    text-decoration: none;
-}
-
-#middleHeaderLink {
-    border-left: black 2pt solid;
-    border-right: black 2pt solid;
-}
-footer {
-    position: relative;
-    bottom: 0pt;
+.col-manual-padding {
+    padding-top: 20px;
 }
