@@ -1,5 +1,5 @@
 <?php
 
-$aSensor = new SensorDeployedClass($_POST);
-$aSensor->create();
+$aSensorDeployed = new SensorDeployedClass($_POST);
+$aSensorDeployed->create();
 echo json_encode($aSensorDeployed);
