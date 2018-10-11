@@ -19,8 +19,8 @@
                         <select class="clientSelector">
                             <option 
                                     v-for="aClient in clients"
-                                    :value="clientID" class="clientSelectorContent">
-                                {{ clientName }}
+                                    :value="aClient.clientID" class="clientSelectorContent">
+                                {{ aClient.clientName }}
                             </option>
                         </select>
                     </div>

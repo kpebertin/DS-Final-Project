@@ -1,17 +1,7 @@
 var dashboardApp = new Vue ({
     el: '#dashboardApp',
     data: {
-        clients: [
-            {
-                clientID: '',
-                clientName: '',
-                clientDescription: '',
-                gicsSector: '',
-                gicsSubIndustry: '',
-                companyHeadquartersCity: '',
-                companyHeadquartersState: ''
-            }
-        ],
+        clients: [],
     },
     computed: {},
     methods: {
