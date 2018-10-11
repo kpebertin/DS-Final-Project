@@ -28,9 +28,11 @@ class TimeSeriesDataClass {
 
     public static function getTimeSeriesData() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM SensorTimeSeries;';
+        $sql = 'SELECT * FROM SensorTimeSeries WHERE sensorDeployedID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([]);
+        $connection = $pdoStatement->execute([
+            $this->
+        ]);
         $arrayOfSensorTimeSeries = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aTime = new TimeSeriesDataClass($row);

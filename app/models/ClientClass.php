@@ -24,7 +24,7 @@ class ClientClass {
         $sql = 'INSERT INTO Client (clientID, clientName, clientDescription, gicsSector, gicsSubIndistry, companyHeadquartersCity, companyHeadquartersState) VALUES (?,?,?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
-            [$this->clientID,
+            [
              $this->clientName,
              $this->clientDescription,
              $this->gicsSector,
