@@ -14,11 +14,25 @@ class SensorClass {
         $this->totalLifeExpectancy = isset($row['totalLifeExpectancy']) ? $row['totalLifeExpectancy'] : null;
     }
 
-    public static function getSensorData() {
+        public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM Sensor;';
+        $sql = 'INSERT INTO Sensor (sensorID, sensorName, sensorDescription, manufacturer, totalLifeExpectancy) VALUES (?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+             $this->sensorID,
+             $this->sensorName,
+             $this->sensorDescription,
+             $this->manufacturer,
+             $this->totalLifeExpectancy
+            ]
+        );
+            
+    public static function getSensorData($sensorID) {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'SELECT * FROM Sensor WHERE sensorID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([]);
+        $connection = $pdoStatement->execute([$sensorID]);
         $arrayOfSensors = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aClient = new SensorClass($row);
