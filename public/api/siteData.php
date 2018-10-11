@@ -2,11 +2,11 @@
 
 require '../../app/common.php';
 
-$aClientID = $_GET['clientID'] ?? "";
+$aSiteID = $_GET['siteID'] ?? "";
 
 #echo $aClientID;
 
-$siteArray = SiteClass::getSiteData($aClientID);
+$siteArray = SiteClass::getSiteData($aSiteID);
 $json = json_encode($siteArray);
 header('Content-Type: application-json');
 echo $json;

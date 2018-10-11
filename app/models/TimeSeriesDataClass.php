@@ -26,6 +26,27 @@ class TimeSeriesDataClass {
         $this->starts = isset($row['starts']) ? $row['starts'] : null;
     }
 
+    public function create() {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'INSERT INTO Client (dataCollectedDate, output, heatRate, compressorEfficiency, availability, reliability, firedHours, trips, starts) VALUES (?,?,?,?,?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+                $this->dataCollectedDate,
+                $this->output,
+                $this->heatRate,
+                $this->compressorEfficiency,
+                $this->availability,
+                $this->reliability,
+                $this->firedHours,
+                $this->trips,
+                $this->starts
+            ]
+        );
+        
+        $this->sensorDeployedID = $db->lastInsertId();
+    }
+    
     public static function getTimeSeriesData($anID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM SensorTimeSeries WHERE sensorDeployedID = ?;';

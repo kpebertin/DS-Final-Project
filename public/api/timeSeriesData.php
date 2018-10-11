@@ -2,7 +2,7 @@
 
 require '../../app/common.php';
 
-$aDeployedSensorID = $_GET['clientID'] ?? "";
+$aDeployedSensorID = $_GET['sensorDeployedID'] ?? "";
 
 $timeSeriesDataArray = TimeSeriesDataClass::getTimeSeriesData($aDeployedSensorID);
 $json = json_encode($timeSeriesDataArrayArray);
