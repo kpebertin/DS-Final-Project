@@ -15,15 +15,14 @@ class SensorDeployedClass {
     }
         public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO SensorDeployed (sensorDeployedID, sensorID, turbineDeployedID, serialNumber, deployedDate) VALUES (?,?,?,?,?);';
+        $sql = 'INSERT INTO SensorDeployed (sensorID, turbineDeployedID, serialNumber, deployedDate) VALUES (?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
                 $this->sensorID,
-                $this->sensorName,
-                $this->sensorDescription,
-                $this->manufacturer,
-                $this->totalLifeExpectancy
+                $this->turbineDeployedID,
+                $this->serialNumber,
+                $this->deployedDate,
             ]
         );
         }
