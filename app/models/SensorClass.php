@@ -16,11 +16,10 @@ class SensorClass {
 
         public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO Sensor (sensorID, sensorName, sensorDescription, manufacturer, totalLifeExpectancy) VALUES (?,?,?,?,?);';
+        $sql = 'INSERT INTO Sensor (sensorName, sensorDescription, manufacturer, totalLifeExpectancy) VALUES (?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
-             $this->sensorID,
              $this->sensorName,
              $this->sensorDescription,
              $this->manufacturer,
