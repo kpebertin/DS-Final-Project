@@ -27,6 +27,7 @@ class SensorClass {
              $this->totalLifeExpectancy
             ]
         );
+        }
             
     public static function getSensorData($sensorID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
