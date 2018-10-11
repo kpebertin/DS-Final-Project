@@ -28,10 +28,10 @@ class TurbineDeployedClass {
         $sql = 'SELECT * FROM TurbineDeployed;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute([]);
-        $arrayOfSensors = [];
+        $arrayOfTurbinesDeployed = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
-            $aClient = new TurbineDeployedClass($row);
-            array_push($arrayOfTurbinesDeployed, $aTurbine);
+            $aTurbineDeployed = new TurbineDeployedClass($row);
+            array_push($arrayOfTurbinesDeployed, $aTurbineDeployed);
         }
         return $arrayOfTurbinesDeployed;
     }
