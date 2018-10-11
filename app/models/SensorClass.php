@@ -36,7 +36,7 @@ class SensorClass {
         $connection = $pdoStatement->execute([$sensorID]);
         $arrayOfSensors = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
-            $aClient = new SensorClass($row);
+            $aSensor = new SensorClass($row);
             array_push($arrayOfSensors, $aSensor);
         }
         return $arrayOfSensors;
