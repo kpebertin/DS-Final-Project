@@ -2,9 +2,12 @@
 
 require '../../app/common.php';
 
-$aSensorID = $_GET['sensorID'] ?? "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'postSensorData.php';
+    die;
+}
 
-#echo $aClientID;
+$aSensorID = $_GET['sensorID'] ?? "";
 
 $siteArray = SensorClass::getSensorData($aSensorID);
 $json = json_encode($siteArray);
