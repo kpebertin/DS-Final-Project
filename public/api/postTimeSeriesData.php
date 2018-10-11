@@ -1,5 +1,5 @@
 <?php
 
-$aSensor = new TimeSeriesClass($_POST);
-$aSensor->create();
+$aTimeSeries = new TimeSeriesClass($_POST);
+$aTimeSeries->create();
 echo json_encode($asensorDeployedID);
