@@ -2,7 +2,7 @@ var dashboardApp = new Vue ({
     el: '#dashboardApp',
     data: {
         clients: [],
-        activeClient: {},
+        activeClient: [],
         sites: [],
         turbineDeployed: [],
         sensorDeployed: [],
@@ -25,7 +25,7 @@ var dashboardApp = new Vue ({
             })
         )},
         setActiveClient: function() {(
-            this.activeClient = this.clients[0]
+            this.activeClient = [this.clients[0]]
         )},
         fetchSites: function(c) {(
             fetch('../api/siteData.php?clientID=' + c)
@@ -46,9 +46,10 @@ var dashboardApp = new Vue ({
     created: function() {
         this.fetchClients();
         console.log(this.clients);
-        this.setActiveClient();
-        console.log(this.activeClient);
+        //this.setActiveClient();
+        //console.log(this.activeClient);
         //this.fetchSites(this.activeClient.clientID);
+        this.fetchSites(1);
         //console.log(this.sites);
     }
 })
