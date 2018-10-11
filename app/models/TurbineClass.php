@@ -35,9 +35,9 @@ class TurbineClass {
         $sql = 'SELECT * FROM Turbine WHERE turbineID = ?;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute([$turbineID]);
-        $arrayOfSensors = [];
+        $arrayOfTurbines = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
-            $aClient = new TurbineClass($row);
+            $aTurbine = new TurbineClass($row);
             array_push($arrayOfTurbines, $aTurbine);
         }
         return $arrayOfTurbines;
