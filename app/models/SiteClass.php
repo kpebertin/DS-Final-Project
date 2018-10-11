@@ -55,6 +55,7 @@ class SiteClass {
              $this->addressCountry,
             ]
         );
+         $this->SiteID = $db->lastInsertId();
      }
     public static function getSiteData($aClient) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
