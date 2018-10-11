@@ -1,6 +1,6 @@
 <?php
 
-class ClientClass {
+class SiteClass {
     public $siteID;
     public $clientID;
     public $siteName;
