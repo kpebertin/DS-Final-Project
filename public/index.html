@@ -8,7 +8,7 @@
         <link href="css/dashboard.css" type="text/css" rel="stylesheet">
         <script src="js/dashboard.js"></script>
     </head>
-    <body onload="onloadDefault()">
+    <body onload="onloadDefault()" id="dashboardApp">
         <header>
             <div class="container-fluid">
                 <div class="row">
@@ -17,9 +17,11 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-8" id="nonLogoHeader">
                         <select class="clientSelector">
-                            <option value="Client1" class="clientSelectorContent">Client 1</option>
-                            <option value="Client2" class="clientSelectorContent">Client 2</option>
-                            <option value="Client3" class="clientSelectorContent">Client 3</option>
+                            <option 
+                                    v-for="aClient in clients"
+                                    :value="clientID" class="clientSelectorContent">
+                                {{ clientName }}
+                            </option>
                         </select>
                     </div>
                     <div class="col-xs-0 col-sm-3 col-md-3 col-lg-2 col-xl-2">
