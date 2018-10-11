@@ -3,7 +3,7 @@
 require '../../app/common.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require 'postClient.php';
+    require 'postClientData.php';
     die;
 }
 
