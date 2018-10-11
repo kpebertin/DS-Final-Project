@@ -19,13 +19,14 @@ class SensorDeployedClass {
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
-             $this->sensorID,
-             $this->sensorName,
-             $this->sensorDescription,
-             $this->manufacturer,
-             $this->totalLifeExpectancy
+                $this->sensorID,
+                $this->sensorName,
+                $this->sensorDescription,
+                $this->manufacturer,
+                $this->totalLifeExpectancy
             ]
         );
+        }
 
     public static function getSensorDeployedData($sensorDeployedID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
