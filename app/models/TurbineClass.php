@@ -29,7 +29,7 @@ class TurbineClass {
              $this->rampUpTime,
              $this->maintenaceInterval,
             ]
-        );
+        );}
     public static function getTurbineData($turbineID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Turbine WHERE turbineID = ?;';
