@@ -2,9 +2,7 @@
 
 require '../../app/common.php';
 
-$clientName = $_GET['clientName'] ?? "";
-
-$clientArray = ClientClass::getClientData($clientName);
+$clientArray = ClientClass::getClientData();
 $json = json_encode($clientArray);
 header('Content-Type: application-json');
 echo $json;

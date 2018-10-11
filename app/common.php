@@ -7,3 +7,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && stripos($_SERVER['CONTENT_TYPE'], 'a
 }
 require 'environment.php';
 require 'models/ClientClass.php';
+require 'models/SiteClass.php';

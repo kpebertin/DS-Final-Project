@@ -19,15 +19,11 @@ class ClientClass {
         $this->companyHeadquartersState = isset($row['companyHeadquartersState']) ? $row['companyHeadquartersState'] : null;
     }
 
-    public static function getClientData($aName) {
+    public static function getClientData() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Client;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute(
-            [
-                $aName
-            ]
-        );
+        $connection = $pdoStatement->execute([]);
         $arrayOfClients = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aClient = new ClientClass($row);
