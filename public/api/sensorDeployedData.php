@@ -2,6 +2,11 @@
 
 require '../../app/common.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'postSensorDeployedData.php';
+    die;
+}
+
 $aTurbineDeployedID = $_GET['turbineDeployedID'] ?? "";
 
 #echo $aClientID;
