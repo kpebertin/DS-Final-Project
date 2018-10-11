@@ -26,12 +26,12 @@ class TimeSeriesDataClass {
         $this->starts = isset($row['starts']) ? $row['starts'] : null;
     }
 
-    public static function getTimeSeriesData() {
+    public static function getTimeSeriesData($anID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM SensorTimeSeries WHERE sensorDeployedID = ?;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute([
-            $this->
+            $anID
         ]);
         $arrayOfSensorTimeSeries = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
