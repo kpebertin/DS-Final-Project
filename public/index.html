@@ -9,119 +9,121 @@
         <script src="js/dashboard.js"></script>
     </head>
     <body onload="onloadDefault()">
-        <header id="dashboardApp">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2" id="logoHeader">
-                        <img alt="Company Logo" src="img/agsLogo.jpg" class="companyLogo">
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-8" id="nonLogoHeader">
-                        <select class="clientSelector">
-                            <option 
-                                    v-for="aClient in clients"
-                                    :value="aClient.clientID" class="clientSelectorContent">
-                                {{ aClient.clientName }}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-                        <button>Add Client</button>
-                        <button>Edit Client</button>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
-                        <div class="clientDescription">
-                            <h3 class="clientDescription">Client Description</h3>
-                            <p>The client description will go here.</p>
+        <div id="dashboardApp">
+            <header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2" id="logoHeader">
+                            <img alt="Company Logo" src="img/agsLogo.jpg" class="companyLogo">
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-8" id="nonLogoHeader">
+                            <select class="clientSelector">
+                                <option 
+                                        v-for="aClient in clients"
+                                        :value="aClient.clientID" class="clientSelectorContent">
+                                    {{ aClient.clientName }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-xs-0 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                            <button>Add Client</button>
+                            <button>Edit Client</button>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
-                        <table class="clientTable">
-                            <tbody class="clientTable">
-                                <tr class="clientTable">
-                                    <th class="clientTable">GICS Sector</th>
-                                    <td class="clientTable">Data</td>
-                                </tr>
-                                <tr class="clientTable">
-                                    <th class="clientTable">GICS Sub-Industry</th>
-                                    <td class="clientTable">Data</td>
-                                </tr>
-                                <tr class="clientTable">
-                                    <th class="clientTable">Company HQ</th>
-                                    <td class="clientTable">Data</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-manual-padding">
-                        <table class="siteTable">
-                            <thead class="siteTable">
-                                <tr class="siteTable">
-                                    <th class="siteTable">Site Name</th>
-                                    <th class="siteTable">Site Description</th>
-                                    <th class="siteTable">Contact</th>
-                                    <th class="siteTable">Contact Email</th>
-                                    <th class="siteTable">Site Address</th>
-                                </tr>
-                            </thead>
-                            <tbody class="siteTable">
-                                <tr class="siteTable">
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                </tr>
-                                <tr class="siteTable">
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                    <td class="siteTable"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
-                        <div class="tab">
-                            <button class="tabLink" id="defaultOpen" onclick="openSiteTab(event, 'allSites')">All Sites</button>
-                            <button class="tabLink" onclick="openSiteTab(event, 'site1')">Site 1</button>
-                            <button class="tabLink" onclick="openSiteTab(event, 'site2')">Site 2</button>
+            </header>
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
+                            <div class="clientDescription">
+                                <h3 class="clientDescription">Client Description</h3>
+                                <p>The client description will go here.</p>
+                            </div>
                         </div>
-                        <div id="allSites" class="tabcontent container-fluid">
-                            <div class="row">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
+                            <table class="clientTable">
+                                <tbody class="clientTable">
+                                    <tr class="clientTable">
+                                        <th class="clientTable">GICS Sector</th>
+                                        <td class="clientTable">Data</td>
+                                    </tr>
+                                    <tr class="clientTable">
+                                        <th class="clientTable">GICS Sub-Industry</th>
+                                        <td class="clientTable">Data</td>
+                                    </tr>
+                                    <tr class="clientTable">
+                                        <th class="clientTable">Company HQ</th>
+                                        <td class="clientTable">Data</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-manual-padding">
+                            <table class="siteTable">
+                                <thead class="siteTable">
+                                    <tr class="siteTable">
+                                        <th class="siteTable">Site Name</th>
+                                        <th class="siteTable">Site Description</th>
+                                        <th class="siteTable">Contact</th>
+                                        <th class="siteTable">Contact Email</th>
+                                        <th class="siteTable">Site Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="siteTable">
+                                    <tr class="siteTable">
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                    </tr>
+                                    <tr class="siteTable">
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                        <td class="siteTable"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
+                            <div class="tab">
+                                <button class="tabLink" id="defaultOpen" onclick="openSiteTab(event, 'allSites')">All Sites</button>
+                                <button class="tabLink" onclick="openSiteTab(event, 'site1')">Site 1</button>
+                                <button class="tabLink" onclick="openSiteTab(event, 'site2')">Site 2</button>
                             </div>
-                            <div class="row">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                            </div>
-                            <div class="row">
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                    <button>Add Time Series Data</button>
+                            <div id="allSites" class="tabcontent container-fluid">
+                                <div class="row">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
                                 </div>
-                                <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                <div class="row">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                </div>
+                                <div class="row">
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                        <button>Add Time Series Data</button>
+                                    </div>
+                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                </div>
                             </div>
+                            <div id="site1" class="tabcontent"></div>
+                            <div id="site2" class="tabcontent"></div>
                         </div>
-                        <div id="site1" class="tabcontent"></div>
-                        <div id="site2" class="tabcontent"></div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <footer></footer>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="js/dashboardApp.js"></script>
+            </main>
+            <footer></footer>
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <script src="js/dashboardApp.js"></script>
+        </div>
     </body>
 </html>
