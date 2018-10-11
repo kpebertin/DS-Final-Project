@@ -16,11 +16,25 @@ class TurbineClass {
         $this->maintenaceInterval = isset($row['maintenaceInterval']) ? $row['maintenaceInterval'] : null;
     }
 
-    public static function getTurbineData() {
+    public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM Turbine;';
+        $sql = 'INSERT INTO Sensor (turbineID, turbineName, turbineDescription, capacity, rampUpTime, maintenaceInterval) VALUES (?,?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+             $this->turbineID,
+             $this->turbineName,
+             $this->turbineDescription,
+             $this->capacity,
+             $this->rampUpTime,
+             $this->maintenaceInterval,
+            ]
+        );
+    public static function getTurbineData($turbineID) {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'SELECT * FROM Turbine WHERE turbineID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([]);
+        $connection = $pdoStatement->execute([$turbineID]);
         $arrayOfSensors = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aClient = new TurbineClass($row);
