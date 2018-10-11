@@ -15,17 +15,23 @@ var dashboardApp = new Vue ({
     },
     computed: {},
     methods: {
-        fetchClients () {
+        fetchClients: function() {(
             fetch('../api/clientData.php')
-            .then(response => response.json())
-            .then(json => {dashboardApp.clients = json})
-            .catch(err => {
-                console.log("Fetch error on fetch(clientList)")
+            .then( function(response) {
+                return response.json()
             })
-        }
+            .then( function(myJSON) {
+                dashboardApp.clients = myJSON
+                console.log(JSON.stringify(myJSON))
+            })
+            .catch( function(err) {
+                console.log("Fetch error on fetch(clientData.php)");
+                console.log(err);
+            })
+        )}
         
     },
-    created () {
+    created: function() {
         this.fetchClients();
     }
 })
