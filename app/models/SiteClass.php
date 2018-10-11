@@ -33,6 +33,29 @@ class SiteClass {
         $this->addressCountry = isset($row['addressCountry']) ? $row['addressCountry'] : null;
     }
 
+     public function create() {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'INSERT INTO Sensor (siteID, clientID, siteName, siteDescription, primaryContact, primaryContactEmail, 
+        plantCapacity,commercialDate, addressLineOne, addressLineTwo, addressCity, addressState, addressZip, addressCountry) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+             $this->siteID,
+             $this->clientID,
+             $this->siteName,
+             $this->siteDescription,
+             $this->primaryContact,
+             $this->primaryContactEmail,
+             $this->plantCapacity,
+             $this->commercialDate,
+             $this->addressLineOne,
+             $this->addressLineTwo,
+             $this->addressCity,
+             $this->addressState,
+             $this->addressZip,
+             $this->addressCountry,
+            ]
+        );
     public static function getSiteData($aClient) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Site WHERE clientID = ?;';
