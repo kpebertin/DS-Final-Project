@@ -4,7 +4,7 @@ require '../../app/common.php';
 
 $aClientID = $_GET['clientID'] ?? "";
 
-echo $aClientID;
+#echo $aClientID;
 
 $siteArray = SiteClass::getSiteData($aClientID);
 $json = json_encode($siteArray);

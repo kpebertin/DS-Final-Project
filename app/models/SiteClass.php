@@ -38,9 +38,7 @@ class SiteClass {
         $sql = 'SELECT * FROM Site WHERE clientID = ?;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute(
-            [
-                $aClient
-            ]
+            [$aClient]
         );
         $arrayOfSites = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {

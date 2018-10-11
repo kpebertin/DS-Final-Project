@@ -30,7 +30,6 @@ var dashboardApp = new Vue ({
         fetchSites: function(c) {(
             fetch('../api/siteData.php?clientID=' + c)
             .then( function(response) {
-                console.log(response)
                 return response.json()
             })
             .then( function(myJSON) {
@@ -50,7 +49,8 @@ var dashboardApp = new Vue ({
         //this.setActiveClient();
         //console.log(this.activeClient);
         //this.fetchSites(this.activeClient.clientID);
-        this.fetchSites(1);
+        // Currently use the below line instead of the above since client 1 has no sites which should be changed.
+        this.fetchSites(2);
         //console.log(this.sites);
     }
 })
