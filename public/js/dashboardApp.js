@@ -44,11 +44,11 @@ var dashboardApp = new Vue ({
         
     },
     created: function() {
-        console.log(this.clients);
+        console.log(JSON.stringify(this.clients));
         this.fetchClients();
         //console.log(this.clients);
-        console.log(this.clients);
-        console.log(this.clients[0]);
+        console.log(JSON.stringify(this.clients));
+        console.log(JSON.stringify(this.clients[0]));
         this.setActiveClient(this.clients[0]);
         //console.log(this.activeClient);
         //this.fetchSites(this.activeClient.clientID);
