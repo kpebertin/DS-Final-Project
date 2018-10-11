@@ -30,6 +30,7 @@ var dashboardApp = new Vue ({
         fetchSites: function(c) {(
             fetch('../api/siteData.php?clientID=' + c)
             .then( function(response) {
+                console.log(response)
                 return response.json()
             })
             .then( function(myJSON) {
@@ -37,7 +38,7 @@ var dashboardApp = new Vue ({
                 console.log(JSON.stringify(myJSON))
             })
             .catch( function(err) {
-                console.log("Fetch error on fetch(clientData.php)");
+                console.log("Fetch error on fetch(siteData.php)");
                 console.log(err);
             })
         )}
