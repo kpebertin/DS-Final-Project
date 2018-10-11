@@ -32,8 +32,8 @@ class SensorDeployedClass {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM SensorDeployed WHERE sensorDeployedID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([sensorDeployedID]);
-        $arrayOfSensors = [];
+        $connection = $pdoStatement->execute([$sensorDeployedID]);
+        $arrayOfSensorsDeployed = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aClient = new SensorDeployedClass($row);
             array_push($arrayOfSensorsDeployed, $aSensor);
