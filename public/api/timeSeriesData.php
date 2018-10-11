@@ -2,6 +2,11 @@
 
 require '../../app/common.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'postTimeSeriesData.php';
+    die;
+}
+
 $aDeployedSensorID = $_GET['sensorDeployedID'] ?? "";
 
 $timeSeriesDataArray = TimeSeriesDataClass::getTimeSeriesData($aDeployedSensorID);
