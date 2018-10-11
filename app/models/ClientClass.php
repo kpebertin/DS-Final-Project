@@ -21,16 +21,16 @@ class ClientClass {
 
     public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO Client (clientName, clientDescription, gicsSector, gicsSubIndistry, companyHeadquartersCity, companyHeadquartersState) VALUES (?,?,?,?,?,?);';
+        $sql = 'INSERT INTO Client (clientName, clientDescription, gicsSector, gicsSubIndustry, companyHeadquartersCity, companyHeadquartersState) VALUES (?,?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
-             $this->clientName,
-             $this->clientDescription,
-             $this->gicsSector,
-             $this->gicsSubIndustry,
-             $this->companyHeadquartersCity,
-             $this->companyHeadquartersState
+                $this->clientName,
+                $this->clientDescription,
+                $this->gicsSector,
+                $this->gicsSubIndustry,
+                $this->companyHeadquartersCity,
+                $this->companyHeadquartersState
             ]
         );
         
