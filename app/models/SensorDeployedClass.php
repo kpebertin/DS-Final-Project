@@ -25,7 +25,7 @@ class SensorDeployedClass {
                 $this->deployedDate,
             ]
         );
-            this->sensorDeployedID = $db->lastInsertId();
+            $this->sensorDeployedID = $db->lastInsertId();
         }
 
     public static function getSensorDeployedData($sensorDeployedID) {
