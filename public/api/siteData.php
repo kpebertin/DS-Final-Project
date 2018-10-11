@@ -1,6 +1,6 @@
 <?php
 
-require '../../app/common.php';
+#require '../../app/common.php';
 
 $aClientID = $_GET['clientID'] ?? "";
 
