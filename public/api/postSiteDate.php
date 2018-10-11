@@ -1,5 +1,5 @@
 <?php
 
-$aSensor = new SiteClass($_POST);
-$aSensor->create();
+$aSite = new SiteClass($_POST);
+$aSite->create();
 echo json_encode($aSite);
