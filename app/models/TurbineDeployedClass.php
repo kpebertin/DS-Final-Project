@@ -23,11 +23,11 @@ class TurbineDeployedClass {
 
     }
 
-    public static function getTurbineDeployedData() {
+    public static function getTurbineDeployedData($aSite) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM TurbineDeployed;';
+        $sql = 'SELECT * FROM TurbineDeployed WHERE siteID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([]);
+        $connection = $pdoStatement->execute([$aSite]);
         $arrayOfTurbinesDeployed = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aTurbineDeployed = new TurbineDeployedClass($row);
