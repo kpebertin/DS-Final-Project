@@ -28,7 +28,7 @@ class ClientClass {
              $this->clientName,
              $this->clientDescription,
              $this->gicsSector,
-             $this->gicsIndustry,
+             $this->gicsSubIndustry,
              $this->companyHeadquartersCity,
              $this->companyHeadquartersState
             ]
