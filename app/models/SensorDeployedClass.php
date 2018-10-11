@@ -13,12 +13,25 @@ class SensorDeployedClass {
         $this->serialNumber = isset($row['serialNumber']) ? $row['serialNumber'] : null;
         $this->deployedDate = isset($row['deployedDate']) ? $row['deployedDate'] : null;
     }
-
-    public static function getSensorDeployedData() {
+        public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM SensorDeployed;';
+        $sql = 'INSERT INTO SensorDeployed (sensorDeployedID, sensorID, turbineDeployedID, serialNumber, deployedDate) VALUES (?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+             $this->sensorID,
+             $this->sensorName,
+             $this->sensorDescription,
+             $this->manufacturer,
+             $this->totalLifeExpectancy
+            ]
+        );
+
+    public static function getSensorDeployedData($sensorDeployedID) {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'SELECT * FROM SensorDeployed WHERE sensorDeployedID = ?;';
         $pdoStatement = $db->prepare($sql);
-        $connection = $pdoStatement->execute([]);
+        $connection = $pdoStatement->execute([sensorDeployedID]);
         $arrayOfSensors = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aClient = new SensorDeployedClass($row);
