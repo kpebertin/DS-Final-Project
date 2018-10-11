@@ -2,7 +2,12 @@
 
 require '../../app/common.php';
 
-$aTurbineID = $_GET['turbineID'] ?? "";
+$aTurbineID = $_GET['turbineID'] ?? ""; 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'postTurbineData.php';
+    die;
+}
 
 #echo $aClientID;
 
