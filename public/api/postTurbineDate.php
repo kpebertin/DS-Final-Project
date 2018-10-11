@@ -1,5 +1,5 @@
 <?php
 
-$aSensor = new TurbineClass($_POST);
-$aSensor->create();
+$aTurbine = new TurbineClass($_POST);
+$aTurbine->create();
 echo json_encode($aTurbineID);
