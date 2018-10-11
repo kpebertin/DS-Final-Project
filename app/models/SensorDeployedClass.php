@@ -35,7 +35,7 @@ class SensorDeployedClass {
         $connection = $pdoStatement->execute([$sensorDeployedID]);
         $arrayOfSensorsDeployed = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
-            $aClient = new SensorDeployedClass($row);
+            $aSensor = new SensorDeployedClass($row);
             array_push($arrayOfSensorsDeployed, $aSensor);
         }
         return $arrayOfSensorsDeployed;
