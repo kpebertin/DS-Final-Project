@@ -19,6 +19,24 @@ class ClientClass {
         $this->companyHeadquartersState = isset($row['companyHeadquartersState']) ? $row['companyHeadquartersState'] : null;
     }
 
+    public function create() {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'INSERT INTO Client (clientID, clientName, clientDescription, gicsSector, gicsSubIndistry, companyHeadquartersCity, companyHeadquartersState) VALUES (?,?,?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [$this->clientID,
+             $this->clientName,
+             $this->clientDescription,
+             $this->gicsSector,
+             $this->gicsIndustry,
+             $this->companyHeadquartersCity,
+             $this->companyHeadquartersState
+            ]
+        );
+        
+        $this->id = $db->lastInsertId();
+    }
+    
     public static function getClientData() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Client;';
