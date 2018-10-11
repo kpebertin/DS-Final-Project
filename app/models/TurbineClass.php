@@ -1,5 +1,5 @@
 <?php
-class SensorClass {
+class TurbineClass {
     public $turbineID;
     public $turbineName;
     public $turbineDescription;
