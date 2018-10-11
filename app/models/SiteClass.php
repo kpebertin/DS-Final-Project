@@ -56,6 +56,7 @@ class SiteClass {
              $this->addressCountry,
             ]
         );
+     }
     public static function getSiteData($aClient) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Site WHERE clientID = ?;';
