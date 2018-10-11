@@ -2,11 +2,11 @@
 
 require '../../app/common.php';
 
-$aTurbineDeployedID = $_GET['turbinedeployedID'] ?? "";
+$aTurbineDeployedID = $_GET['turbineDeployedID'] ?? "";
 
 #echo $aClientID;
 
-$siteArray = SensorDeployedClass::getTurbineDeployedData($aTurbineDeployedID);
-$json = json_encode($siteArray);
+$sensorDeployedArray = SensorDeployedClass::getTurbineDeployedData($aTurbineDeployedID);
+$json = json_encode($sensorDeployedArray);
 header('Content-Type: application-json');
 echo $json;
