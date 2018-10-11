@@ -2,7 +2,7 @@
 
 require '../../app/common.php';
 
-$aTurbineID = $_GET['tubineID'] ?? "";
+$aTurbineID = $_GET['turbineID'] ?? "";
 
 #echo $aClientID;
 
