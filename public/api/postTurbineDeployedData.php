@@ -1,5 +1,5 @@
 <?php
 
-$aTurbinesDeployed = new TurbineDeployedClass($_POST);
-$aTurbinesDeployed->create();
+$aTurbineDeployed = new TurbineDeployedClass($_POST);
+$aTurbineDeployed->create();
 echo json_encode($aTurbineDeployed);
