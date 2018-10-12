@@ -52,7 +52,7 @@ class SiteClass {
              $this->addressCity,
              $this->addressState,
              $this->addressZip,
-             $this->addressCountry,
+             $this->addressCountry
             ]
         );
          $this->siteID = $db->lastInsertId();
