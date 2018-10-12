@@ -39,7 +39,7 @@ class TurbineDeployedClass {
                 $this->lastUnplannedOutageDate
             ]
         );
-    $this->turbineID = $db->lastInsertId();
+    $this->turbineDeployedID = $db->lastInsertId();
     }
     
     public static function getTurbineDeployedData($aSite) {
