@@ -26,6 +26,7 @@ class SensorClass {
              $this->totalLifeExpectancy
             ]
         );
+            $this->sensorID = $db->lastInsertId();
         }
             
     public static function getSensorData($sensorID) {
