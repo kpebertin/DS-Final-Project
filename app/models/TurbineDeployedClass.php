@@ -23,6 +23,25 @@ class TurbineDeployedClass {
 
     }
 
+    public function create() {
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+        $sql = 'INSERT INTO TurbineDeployed (turbineID,siteID,serialNumber,deployedDate,totalFiredHours,totalStarts,lastPlannedOutageDate,lastUnplannedOutageDate) VALUES (?,?,?,?,?,?,?,?);';
+        $pdoStatement = $db->prepare ($sql);
+        $connection = $pdoStatement->execute (
+            [
+                $this->turbineID,
+                $this->siteID,
+                $this->serialNumber,
+                $this->deployedDate,
+                $this->totalFiredHours,
+                $this->totalStarts,
+                $this->lastPlannedOutageDate,
+                $this->lastUnplannedOutageDate
+            ]
+        );
+    $this->turbineID = $db->lastInsertId();
+    }
+    
     public static function getTurbineDeployedData($aSite) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM TurbineDeployed WHERE siteID = ?;';
