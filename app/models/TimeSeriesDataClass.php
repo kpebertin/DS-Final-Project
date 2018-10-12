@@ -1,7 +1,7 @@
 <?php
 
 class TimeSeriesDataClass {
-    public $sensorDeployedID
+    public $sensorDeployedID;
     public $sensorDeployedID;
     public $dataCollectedDate;
     public $output;
