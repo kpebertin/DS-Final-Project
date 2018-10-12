@@ -2,14 +2,12 @@
 
 require '../../app/common.php';
 
-$aTurbineID = $_GET['turbineID'] ?? ""; 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require 'postTurbineData.php';
     die;
 }
 
-#echo $aClientID;
+$aTurbineID = $_GET['turbineID'] ?? ""; 
 
 $siteArray = TurbineClass::getTurbineData($aTurbineID);
 $json = json_encode($siteArray);
