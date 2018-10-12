@@ -28,7 +28,7 @@ class TimeSeriesDataClass {
 
     public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO Client (dataCollectedDate, output, heatRate, compressorEfficiency, availability, reliability, firedHours, trips, starts) VALUES (?,?,?,?,?,?,?,?,?);';
+        $sql = 'INSERT INTO SensorTimeSeries (dataCollectedDate, output, heatRate, compressorEfficiency, availability, reliability, firedHours, trips, starts) VALUES (?,?,?,?,?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
