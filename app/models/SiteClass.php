@@ -35,7 +35,7 @@ class SiteClass {
 
      public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO Sensor (clientID, siteName, siteDescription, primaryContact, primaryContactEmail, 
+        $sql = 'INSERT INTO Site (clientID, siteName, siteDescription, primaryContact, primaryContactEmail, 
         plantCapacity,commercialDate, addressLineOne, addressLineTwo, addressCity, addressState, addressZip, addressCountry) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
