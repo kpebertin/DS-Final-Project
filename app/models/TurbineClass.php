@@ -18,18 +18,19 @@ class TurbineClass {
 
     public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'INSERT INTO Sensor (turbineID, turbineName, turbineDescription, capacity, rampUpTime, maintenaceInterval) VALUES (?,?,?,?,?,?);';
+        $sql = 'INSERT INTO Turbine (turbineName, turbineDescription, capacity, rampUpTime, maintenaceInterval) VALUES (?,?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
-             $this->turbineID,
              $this->turbineName,
              $this->turbineDescription,
              $this->capacity,
              $this->rampUpTime,
              $this->maintenaceInterval,
             ]
-        );}
+        );
+    $this->turbineID = $db->lastInsertId();
+    }
     public static function getTurbineData($turbineID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Turbine WHERE turbineID = ?;';
