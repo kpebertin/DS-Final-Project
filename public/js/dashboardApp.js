@@ -51,6 +51,7 @@ var dashboardApp = new Vue ({
     },
     created: function() {
         this.fetchClients();
+        this.onLoadRunThis();
         //console.log(dashboardApp.clients[0]);
         //this.setActiveClient(dashboardApp.clients[0]);
         //this.fetchSites(this.activeClient.clientID);
