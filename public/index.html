@@ -16,7 +16,7 @@
                             <img alt="Company Logo" src="img/agsLogo.jpg" class="companyLogo">
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-8" id="nonLogoHeader">
-                            <select class="clientSelector" onchange="dashboardApp.newActiveClient()">
+                            <select class="clientSelector" onchange="dashboardApp.newActiveClient(this)">
                                 <option 
                                         v-for="aClient in clients"
                                         :value="aClient.clientID" class="clientSelectorContent">
