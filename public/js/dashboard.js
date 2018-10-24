@@ -1,4 +1,4 @@
-function openSiteTab(evt, siteID) {
+function openTurbineTab(evt, turbineID) {
     var i, tabcontent, tablinks;
 
     tabcontent = document.getElementsByClassName("tabcontent");
