@@ -6,7 +6,8 @@ var dashboardApp = new Vue ({
         sites: [],
         turbineDeployed: [],
         sensorDeployed: [],
-        timeSeriesData: []
+        timeSeriesData: [],
+        emwpdata: []
     },
     computed: {},
     methods: {
