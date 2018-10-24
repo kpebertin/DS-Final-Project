@@ -36,10 +36,23 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON
-                console.log(JSON.stringify(myJSON))
+                dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
+                console.log(err);
+            })
+        )},
+        fetchTurbinesDeployed: function(tid) {(
+            fetch('../api/turbineDeployedData.php?siteID=' + tid)
+            .then( function(response) {
+                return response.json()
+            })
+            .then( function(myJSON) {
+                dashboardApp.sensorDeployed = myJSON
+            })
+            .catch( function(err) {
+                console.log("Fetch error on fetch(turbineDeployedData.php)");
                 console.log(err);
             })
         )},
