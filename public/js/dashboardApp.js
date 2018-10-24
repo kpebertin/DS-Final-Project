@@ -25,7 +25,7 @@ var dashboardApp = new Vue ({
             })
         )},
         setActiveClient: function(ac) {(
-            this.activeClient = ac
+            dashboardApp.activeClient = ac
         )},
         fetchSites: function(c) {(
             fetch('../api/siteData.php?clientID=' + c)
