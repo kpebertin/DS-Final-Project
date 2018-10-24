@@ -24,10 +24,10 @@ var dashboardApp = new Vue ({
                 console.log(err);
             })
         )},
-        setActiveClient: function(ac) {(
-            //dashboardApp.activeClient = ac
-            dashboardApp.activeClient = ac
-        )},
+        setActiveClient: function(ac) {
+            dashboardApp.activeClient = ac;
+            console.log(ac);
+        },
         fetchSites: function(c) {(
             fetch('../api/siteData.php?clientID=' + c)
             .then( function(response) {
