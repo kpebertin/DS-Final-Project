@@ -41,16 +41,21 @@ var dashboardApp = new Vue ({
                 console.log("Fetch error on fetch(siteData.php)");
                 console.log(err);
             })
-        )}
+        )},
+        onLoadRunThis: function() {
+            console.log(dashboardApp.clients[0]);
+            console.log(this.clients[0]);
+            this.setActiveClient(dashboardApp.clients[0]);
+        }
         
     },
     created: function() {
         this.fetchClients();
-        console.log(dashboardApp.clients[0]);
-        this.setActiveClient(dashboardApp.clients[0]);
+        //console.log(dashboardApp.clients[0]);
+        //this.setActiveClient(dashboardApp.clients[0]);
         //this.fetchSites(this.activeClient.clientID);
         // Currently use the below line instead of the above since client 1 has no sites which should be changed.
-        this.fetchSites(2);
+        this.fetchSites(1);
         //console.log(this.sites);
     }
 })
