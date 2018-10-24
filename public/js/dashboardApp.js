@@ -50,7 +50,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 console.log(myJSON)
-                dashboardApp.sensorDeployed = myJSON
+                dashboardApp.turbineDeployed = myJSON
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineDeployedData.php)");
