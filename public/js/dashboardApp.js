@@ -46,7 +46,7 @@ var dashboardApp = new Vue ({
     },
     created: function() {
         this.fetchClients();
-        //this.setActiveClient(this.clients["0"]);
+        this.setActiveClient(this.clients["0"]);
         //this.fetchSites(this.activeClient.clientID);
         // Currently use the below line instead of the above since client 1 has no sites which should be changed.
         this.fetchSites(2);
