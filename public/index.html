@@ -123,8 +123,9 @@
                                     <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
                                 </div>
                             </div>
-                            <div id="turbine1" class="tabcontent"></div>
-                            <div id="turbine2" class="tabcontent"></div>
+                            <div v-for="t in turbineDeployed" v-bind:id="turbine{{t.turbineID}}" class="tabcontent">
+                                <h1>Test</h1>
+                            </div>
                         </div>
                     </div>
                 </div>

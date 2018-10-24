@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $aTurbineID = $_GET['turbineID'] ?? ""; 
 
-$siteArray = TurbineClass::getTurbineData($aTurbineID);
-$json = json_encode($siteArray);
+$turbineArray = TurbineClass::getTurbineData($aTurbineID);
+$json = json_encode($turbineArray);
 header('Content-Type: application-json');
 echo $json;
