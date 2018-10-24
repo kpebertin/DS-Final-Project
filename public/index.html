@@ -97,7 +97,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                             <div class="tab">
                                 <button class="tabLink" id="defaultOpen" onclick="openTurbineTab(event, 'allTurbines')">All Turbines</button>
-                                <button class="tablink" v-for="t in turbineDeployed" :onclick="openTurbineTab(event, t.turbineID)">Turbine {{t.turbineID}}</button>
+                                <button class="tablink" v-for="t in turbineDeployed" :onclick="setOnClick(t.turbineID)">Turbine {{t.turbineID}}</button>
                             </div>
                             <div id="allTurbines" class="tabcontent container-fluid">
                                 <div class="row">

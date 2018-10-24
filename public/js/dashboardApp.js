@@ -61,21 +61,8 @@ var dashboardApp = new Vue ({
             dashboardApp.activeClient = dashboardApp.clients[Number(c) - 1];
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
-        openTurbineTab: function(evt, turbineID) {
-            var i, tabcontent, tablinks;
-
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            tablinks = document.getElementsByClassName("tabLink");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            document.getElementById(turbineID).style.display = "block";
-            evt.currentTarget.className += " active";
+        setOnClick: function(tid) {
+            return "openTurbineTab(event, " + tid + ")";
         }
     },
     created: function() {
