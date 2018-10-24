@@ -44,7 +44,7 @@ var dashboardApp = new Vue ({
         )},
         newActiveClient: function(c) {
             dashboardApp.activeClient = dashboardApp.clients[Number(c)];
-            dashboardApp.fetchSites(dashboardApp.activeClient['clientID']);
+            dashboardApp.fetchSites(dashboardApp.clients[Number(c)]['clientID']);
         }
     },
     created: function() {
