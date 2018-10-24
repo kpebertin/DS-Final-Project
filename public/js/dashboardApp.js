@@ -35,7 +35,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON
-                //console.log(JSON.stringify(myJSON))
+                console.log(JSON.stringify(myJSON))
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
