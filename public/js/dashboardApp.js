@@ -18,7 +18,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.clients = myJSON
                 dashboardApp.activeClient = myJSON[0]
-                //console.log(JSON.stringify(myJSON))
+                dashboardApp.fetchSites(myJSON[0]['clientID'])
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(clientData.php)");
@@ -45,6 +45,5 @@ var dashboardApp = new Vue ({
     },
     created: function() {
         this.fetchClients();
-        this.fetchSites(dashboardApp.activeClient.clientID);
     }
 })
