@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     die;
 }
 
-$aSiteID = $_GET['siteID'] ?? "";
+$aSiteID = $_GET['clientID'] ?? "";
 
 echo $aSiteID;
 
