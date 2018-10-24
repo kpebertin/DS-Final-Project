@@ -59,7 +59,7 @@ class SiteClass {
      }
     public static function getSiteData($aClient) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM Site WHERE siteID = ?;';
+        $sql = 'SELECT * FROM Site WHERE clientID = ?;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute(
             [$aClient]
