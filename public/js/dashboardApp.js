@@ -49,6 +49,7 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
+                console.log(myJSON)
                 dashboardApp.sensorDeployed = myJSON
             })
             .catch( function(err) {
