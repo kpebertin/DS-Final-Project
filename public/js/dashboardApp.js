@@ -41,7 +41,11 @@ var dashboardApp = new Vue ({
                 console.log("Fetch error on fetch(siteData.php)");
                 console.log(err);
             })
-        )}
+        )},
+        newActiveClient: function(c) {
+            dashboardApp.activeClient = dashboardApp.clients[c];
+            dashboardApp.fetchSites(dashboardApp.activeClient['clientID']);
+        }
     },
     created: function() {
         this.fetchClients();
