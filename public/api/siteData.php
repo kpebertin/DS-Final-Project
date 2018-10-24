@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $aSiteID = $_GET['siteID'] ?? "";
 
-#echo $aClientID;
+echo $aSiteID;
 
 $siteArray = SiteClass::getSiteData($aSiteID);
 $json = json_encode($siteArray);
