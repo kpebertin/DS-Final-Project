@@ -60,6 +60,9 @@ var dashboardApp = new Vue ({
         newActiveClient: function(c) {
             dashboardApp.activeClient = dashboardApp.clients[Number(c) - 1];
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
+        },
+        makeTurbineID: function(aid) {
+            return "turbine" + aid;
         }
     },
     created: function() {
