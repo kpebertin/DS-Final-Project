@@ -69,25 +69,25 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                                         <table class="siteTable">
-                                <thead class="siteTable">
-                                    <tr class="siteTable">
-                                        <th class="siteTable">Site Name</th>
-                                        <th class="siteTable">Site Description</th>
-                                        <th class="siteTable">Contact</th>
-                                        <th class="siteTable">Contact Email</th>
-                                        <th class="siteTable">Site Location</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="siteTable" v-for="s in sites">
-                                    <tr class="siteTable">
-                                        <td class="siteTable">{{ s.siteName }}</td>
-                                        <td class="siteTable">{{ s.siteDescription }}</td>
-                                        <td class="siteTable">{{ s.primaryContact }}</td>
-                                        <td class="siteTable">{{ s.primaryContactEmail }}</td>
-                                        <td class="siteTable">{{ s.addressCity }}, {{ s.addressState }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            <thead class="siteTable">
+                                                <tr class="siteTable">
+                                                    <th class="siteTable">Site Name</th>
+                                                    <th class="siteTable">Site Description</th>
+                                                    <th class="siteTable">Contact</th>
+                                                    <th class="siteTable">Contact Email</th>
+                                                    <th class="siteTable">Site Location</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="siteTable" v-for="s in sites">
+                                                <tr class="siteTable" :onclick="setNewActiveSite(s.siteID)">
+                                                    <td class="siteTable">{{ s.siteName }}</td>
+                                                    <td class="siteTable">{{ s.siteDescription }}</td>
+                                                    <td class="siteTable">{{ s.primaryContact }}</td>
+                                                    <td class="siteTable">{{ s.primaryContactEmail }}</td>
+                                                    <td class="siteTable">{{ s.addressCity }}, {{ s.addressState }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
