@@ -37,7 +37,8 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
-                dashboardApp.sites = myJSON
+                dashboardApp.sites = myJSON;
+                dashboardApp.turbineDeployed = [];
                 for(var i = 0; i < dashboardApp.sites.length; i++) {
                     dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[i]['siteID']);
                 }
