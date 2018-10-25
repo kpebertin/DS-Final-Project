@@ -34,5 +34,5 @@ var openSiteTab = function(evt, siteID) {
 
 function onloadDefault() {
     document.getElementById("defaultOpenSite").click();
-    socument.getElementById("defaultOpenTurbine").click();
+    document.getElementById("defaultOpenTurbine").click();
 }
