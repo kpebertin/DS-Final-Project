@@ -54,7 +54,9 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 console.log(myJSON)
-                dashboardApp.turbineDeployed.push(myJSON)
+                if(myJSON.length > 0) {
+                    dashboardApp.turbineDeployed.push(myJSON);
+                }
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineDeployedData.php)");
