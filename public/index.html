@@ -101,7 +101,7 @@
                             </div>
                             <div v-for="s in sites" :id="s.siteName" class="tabcontent">
                                 <div class="tab">
-                                    <button class="tabLinkTurbine" id="defaultOpenTurbine" onclick="openTurbineTab(event, 'allTurbines')">All Turbines</button>
+                                    <button class="tabLinkTurbine" id="defaultOpenTurbine" onclick="openTurbineTab(event, 'addNewTurbine')">All Turbines</button>
                                     <button v-for="t in turbineDeployed" class="tabLinkTurbine" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
                                 </div>
                                 <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontentTurbine">
