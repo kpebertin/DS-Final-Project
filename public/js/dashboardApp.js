@@ -66,6 +66,8 @@ var dashboardApp = new Vue ({
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
         setOnClick: function(tid) {
+            console.log(tid);
+            console.log(typeof tid);
             return "openTurbineTab(event, " + tid + ")";
         }
     },
