@@ -99,7 +99,7 @@
                                 <button class="tabLink" id="defaultOpenSite" onclick="openSiteTab(event, 'addNewSite')">Add New Site</button>
                                 <button v-for="s in sites" class="tabLink" :onclick="setOnClickSite(s.siteName)">{{s.siteName}}</button>
                             </div>
-                            <div v-for="s in sites" :id="s.siteName" class="tabcontent">
+                            <div v-for="s in sites" :id="s.siteName" class="tabcontent">    
                                 <div class="tab">
                                     <button class="tabLinkTurbine" id="defaultOpenTurbine" onclick="openTurbineTab(event, 'addNewTurbine')">All Turbines</button>
                                     <button v-for="t in turbineDeployed" class="tabLinkTurbine" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
