@@ -6,6 +6,7 @@ var dashboardApp = new Vue ({
         sites: [],
         activeSite: [],
         turbineDeployed: [],
+        activeTurbine: [],
         sensorDeployed: [],
         timeSeriesData: [],
         emwpdata: []
@@ -37,7 +38,9 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON
-                dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
+                for(var i = 0; i < dashboardApp.sites.length; i++) {
+                    dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[i]['siteID']);
+                }
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
@@ -51,7 +54,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 console.log(myJSON)
-                dashboardApp.turbineDeployed = myJSON
+                dashboardApp.turbineDeployed.push(myJSON)
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineDeployedData.php)");
