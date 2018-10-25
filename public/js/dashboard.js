@@ -1,6 +1,5 @@
 var openTurbineTab = function(evt, turbineID) {
     var i, tabcontentTurbine, tablinksTurbine;
-    console.log(turbineID);
     tabcontentTurbine = document.getElementsByClassName("tabcontentTurbine");
     for (i = 0; i < tabcontentTurbine.length; i++) {
         tabcontentTurbine[i].style.display = "none";
