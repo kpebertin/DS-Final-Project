@@ -113,6 +113,46 @@
                             </div>
                             <div id="addNewSite" class="tabcontent container-fluid">
                                 <h1>Add a new Site</h1>
+                                  <form @submit.prevent="handleSiteForm" id="newSiteForm">
+                                  <div class="form-group row">
+                                  <div class="col-sm-3">
+                                    <input type="text" id="siteName" v-model="Form.site" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="siteDescription" v-model="Form.siteDescription" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">
+                                    <input type="text" id="primaryContact" v-model="Form.primaryContact" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="primaryContactEmail" v-model="Form.primaryContactEmail" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="plantCapacity" v-model="Form.plantCapacity" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="commercialDate" v-model="Form.commercialDate" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressLineOne" v-model="Form.addressLineOne" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressLineTwo" v-model="Form.addressLineTwo" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressCity" v-model="Form.addressCity" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressState" v-model="Form.addressState" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressZip" v-model="Form.addressZip" class="form-control" required>
+                                  </div>
+                                  <div class="col-sm-3">  
+                                    <input type="text" id="addressCountry" v-model="Form.addressCountry" class="form-control" required>
+                                  </div><br />
+                                  <div>
+                                </form>
                             </div>
                         </div>
                     </div>
