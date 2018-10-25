@@ -41,6 +41,7 @@ var dashboardApp = new Vue ({
                 for(var i = 0; i < dashboardApp.sites.length; i++) {
                     dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[i]['siteID']);
                 }
+                delete dashboardApp.turbineDeployed[0];
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
@@ -66,8 +67,6 @@ var dashboardApp = new Vue ({
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
         setOnClick: function(tid) {
-            console.log(tid);
-            console.log(typeof tid);
             return "openTurbineTab(event, " + tid + ")";
         }
     },
