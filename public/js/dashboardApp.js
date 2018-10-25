@@ -52,7 +52,6 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
-                console.log(myJSON)
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
                 }
