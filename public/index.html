@@ -79,7 +79,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="siteTable" v-for="s in sites">
-                                                <tr class="siteTable" :onclick="setNewActiveSite(s.siteID)">
+                                                <tr class="siteTable" v-on:click="setNewActiveSite(s.siteID)">
                                                     <td class="siteTable">{{ s.siteName }}</td>
                                                     <td class="siteTable">{{ s.siteDescription }}</td>
                                                     <td class="siteTable">{{ s.primaryContact }}</td>
