@@ -39,9 +39,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON;
                 dashboardApp.turbineDeployed = [];
-                for(var i = 0; i < dashboardApp.sites.length; i++) {
-                    dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[i]['siteID']);
-                }
+                dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
