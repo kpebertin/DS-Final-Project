@@ -74,7 +74,7 @@ var dashboardApp = new Vue ({
             return "openTurbineTab(event, " + tid + ")";
         },
         setOnClickSite: function(sid) {
-            return "openSiteTab(event, " + tid + ")";
+            return "openSiteTab(event, " + sid + ")";
         }
     },
     created: function() {

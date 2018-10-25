@@ -97,9 +97,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                             <div class="tab">
                                 <button class="tabLink" id="defaultOpenSite" onclick="openSiteTab(event, 'addNewSite')">Add New Site</button>
-                                <button v-for="s in sites" class="tabLink" :onclick="setOnClickSite(s.siteID)">{{s.siteName}}</button>
+                                <button v-for="s in sites" class="tabLink" :onclick="setOnClickSite(s.siteName)">{{s.siteName}}</button>
                             </div>
-                            <div v-for="s in sites" :id="s.siteName" class="tabcontent" :onclick="">
+                            <div v-for="s in sites" :id="s.siteName" class="tabcontent">
                                 <div class="tab">
                                     <button class="tabLinkTurbine" id="defaultOpenTab" onclick="openTurbineTab(event, 'allTurbines')">All Turbines</button>
                                     <button v-for="t in turbineDeployed" class="tabLinkTurbine" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
