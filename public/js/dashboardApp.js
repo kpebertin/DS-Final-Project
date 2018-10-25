@@ -41,7 +41,6 @@ var dashboardApp = new Vue ({
                 for(var i = 0; i < dashboardApp.sites.length; i++) {
                     dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[i]['siteID']);
                 }
-                delete dashboardApp.turbineDeployed[0];
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
