@@ -96,34 +96,23 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                             <div class="tab">
-                                <button class="tabLink" id="defaultOpen" onclick="openTurbineTab(event, 'allTurbines')">All Turbines</button>
-                                <button v-for="t in turbineDeployed" class="tabLink" :onclick="setOnClick(t.turbineID)">Turbine {{t.serialNumber}}</button>
+                                <button class="tabLink" id="defaultOpenSite" onclick="openSiteTab(event, 'addNewSite')">Add New Site</button>
+                                <button v-for="s in sites" class="tabLink" :onclick="setOnClickSite(s.siteID)">{{s.siteName}}</button>
                             </div>
-                            <div id="allTurbines" class="tabcontent container-fluid">
-                                <div class="row">
-                                    <h3>Turbine Information</h3>
-                                    
+                            <div v-for="s in sites" :id="s.siteName" class="tabcontent" :onclick="">
+                                <div class="tab">
+                                    <button class="tabLinkTurbine" id="defaultOpenTab" onclick="openTurbineTab(event, 'allTurbines')">All Turbines</button>
+                                    <button v-for="t in turbineDeployed" class="tabLinkTurbine" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
                                 </div>
-                                <div class="row">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontentTurbine">
+                                    <h1>Test {{t.turbineID}}</h1>
                                 </div>
-                                <div class="row">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                </div>
-                                <div class="row">
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
-                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                                        <button>Add Time Series Data</button>
-                                    </div>
-                                    <img class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" src="" alt="A graph goes here.">
+                                <div id="addNewTurbine" class="tabcontentTurbine container-fluid">
+                                    <h1>Make a new turbine here</h1>
                                 </div>
                             </div>
-                            <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontent">
-                                <h1>Test</h1>
+                            <div id="addNewSite" class="tabcontent container-fluid">
+                                <h1>Add a new Site</h1>
                             </div>
                         </div>
                     </div>

@@ -70,8 +70,11 @@ var dashboardApp = new Vue ({
             dashboardApp.turbinesDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
         },
-        setOnClick: function(tid) {
+        setOnClickTab: function(tid) {
             return "openTurbineTab(event, " + tid + ")";
+        },
+        setOnClickSite: function(sid) {
+            return "openSiteTab(event, " + tid + ")";
         }
     },
     created: function() {
