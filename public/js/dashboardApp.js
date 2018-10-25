@@ -4,6 +4,7 @@ var dashboardApp = new Vue ({
         clients: [],
         activeClient: [],
         sites: [],
+        activeSite: [],
         turbineDeployed: [],
         sensorDeployed: [],
         timeSeriesData: [],
