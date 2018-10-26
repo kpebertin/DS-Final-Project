@@ -9,10 +9,10 @@ class ClientNoteClass {
     
     public function __construct($row) {
         $this->noteID = isset($row['noteID']) ? $row['noteID'] : null;
-        $this->noteID = isset($row['clientID']) ? $row['clientID'] : null;
-        $this->noteID = isset($row['submitterName']) ? $row['submitterName'] : null;
-        $this->noteID = isset($row['submitterNote']) ? $row['submitterNote'] : null;
-        $this->noteID = isset($row['submitDate']) ? $row['submitDate'] : null;
+        $this->clientID = isset($row['clientID']) ? $row['clientID'] : null;
+        $this->submitterName = isset($row['submitterName']) ? $row['submitterName'] : null;
+        $this->submitterNote = isset($row['submitterNote']) ? $row['submitterNote'] : null;
+        $this->submitDate = isset($row['submitDate']) ? $row['submitDate'] : null;
     }
     
     public function create() {
@@ -33,7 +33,7 @@ class ClientNoteClass {
     
     public static function getClientNoteData($anID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM ClientNote WHERE clientID = ?';
+        $sql = 'SELECT * FROM ClientNote WHERE clientID = ?;';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute ([$anID]);
         $arrayOfNotes = [];

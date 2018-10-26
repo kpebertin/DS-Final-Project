@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $aClientID = $_GET['clientID'] ?? 0;
-echo $aClientID;
+#echo $aClientID;
 
 $noteArray = ClientNoteClass::getClientNoteData($aClientID);
 $json = json_encode($noteArray);
