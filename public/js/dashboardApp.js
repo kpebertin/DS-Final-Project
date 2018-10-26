@@ -75,6 +75,7 @@ var dashboardApp = new Vue ({
                     siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
                 }
             }
+            console.log(sid);
             document.getElementById("S" + sid).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
