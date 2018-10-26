@@ -41,7 +41,6 @@ var dashboardApp = new Vue ({
                 dashboardApp.sites = myJSON;
                 dashboardApp.turbineDeployed = [];
                 dashboardApp.setNewActiveSite(dashboardApp.sites[0]['siteID'], "Y");
-                //dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
@@ -84,10 +83,13 @@ var dashboardApp = new Vue ({
         fetchNotes: function(cid) {(
             fetch('../api/clientNote.php?clientID=' + cid)
             .then( function(response) {
-                return response.json()
+                console.log("Test 1");
+                return response.json();
             })
             .then( function(myJSON) {
-                dashboardApp.notes = myJSON
+                console.log("Test 2");
+                dashboardApp.notes = myJSON;
+                console.log("Test 3");
             })
             .error( function(err) {
                 console.log("Fetch error on fetch(clientNote.php)");
