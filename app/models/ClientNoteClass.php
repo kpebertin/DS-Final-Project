@@ -33,9 +33,9 @@ class ClientNoteClass {
     
     public static function getClientNoteData($anID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = '';
+        $sql = 'SELECT * FROM ClientNote WHERE clientID = ?';
         $pdoStatement = $db->prepare ($sql);
-        $connection = $pdoStatement->execute ([]);
+        $connection = $pdoStatement->execute ([$anID]);
         $arrayOfNotes = [];
         while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aNote = new ClientNoteClass($row);
