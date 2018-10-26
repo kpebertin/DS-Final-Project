@@ -50,13 +50,13 @@ var dashboardApp = new Vue ({
         fetchTurbinesDeployed: function(tid) {(
             fetch('../api/turbineDeployedData.php?siteID=' + tid)
             .then( function(response) {
-                return response.json()
+                var tempSID = "S" + tid;
+                document.getElementById(tempSID).className += " activeSite";
+                return response.json();
             })
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
-                    var tempSID = "S" + tid;
-                    document.getElementById(tempSID).className += " activeSite";
                 }
             })
             .catch( function(err) {
