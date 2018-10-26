@@ -39,9 +39,8 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON;
                 dashboardApp.turbineDeployed = [];
-                console.log(dashboardApp.sites[0]['siteID']);
                 dashboardApp.setNewActiveSite(dashboardApp.sites[0]['siteID'], "Y");
-                dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
+                //dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(siteData.php)");
@@ -71,17 +70,16 @@ var dashboardApp = new Vue ({
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
             if(firstTime == null) {
-                var siteColorChange = document.getElementsByClassName("siteTable activeSite");
+                var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
                 for(var i = 0; i < siteColorChange.length; i++) {
                     siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
                 }
+                var tempSID = "S" + sid;
+                document.getElementById(tempSID).className += " activeSite";
             } else {
-                setTimeout(function(){return true;},500);
+                var siteColorChange = document.getElementsByClassName("siteTableRow");
+                siteColorChange[0].className = siteColorChange[0].className + " activeSite";
             }
-            var tempSID = "S" + sid;
-            console.log(tempSID);
-            console.log(dashboardApp.sites);
-            document.getElementById(tempSID).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
