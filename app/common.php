@@ -13,3 +13,4 @@ require 'models/SensorDeployedClass.php';
 require 'models/SensorClass.php';
 require 'models/TurbineClass.php';
 require 'models/TimeSeriesDataClass.php';
+require 'models/ClientNoteClass.php';

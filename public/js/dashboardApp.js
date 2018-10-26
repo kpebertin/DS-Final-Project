@@ -8,7 +8,8 @@ var dashboardApp = new Vue ({
         turbineDeployed: [],
         activeTurbine: [],
         sensorDeployed: [],
-        notes: []
+        notes: [],
+        noteToSubmit: {}
     },
     computed: {},
     methods: {
@@ -67,6 +68,7 @@ var dashboardApp = new Vue ({
         newActiveClient: function(c) {
             dashboardApp.activeClient = dashboardApp.clients[Number(c) - 1];
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
+            dashboardApp.fetchNotes(dashboardApp.activeClient['clientID']);
         },
         setNewActiveSite: function(sid, firstTime) {
             var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
@@ -91,7 +93,29 @@ var dashboardApp = new Vue ({
                 console.log("Fetch error on fetch(clientNotes.php)");
                 console.log(err);
             })
-        )}
+        )},
+        submitNote: function(aError) {
+            const aNote = JSON.stringify(this.noteToSubmit);
+            fetch (
+                '../api/clientNote.php',
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "aplication/json; charset=utf-8"
+                    },
+                    body: aNote
+                })
+            .then( function(response) {
+                return response.json()
+            })
+            .then( function(myJSON) {
+                dashboardApp.notes.push(myJSON)
+            })
+            .catch( function(err) {
+                console.log("Error posting note.");
+                console.log(err);
+            })
+        }
     },
     created: function() {
         this.fetchClients();

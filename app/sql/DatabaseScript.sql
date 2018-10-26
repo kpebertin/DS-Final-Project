@@ -1,9 +1,9 @@
 USE agsSystem;
 
-
 DROP TABLE SensorTimeSeries;
 DROP TABLE SensorDeployed;
 DROP TABLE TurbineDeployed;
+DROP TABLE ClientNote;
 DROP TABLE Site;
 DROP TABLE Client;
 DROP TABLE Turbine;
@@ -23,6 +23,22 @@ CREATE TABLE Client (
 
 INSERT INTO Client (clientName, clientDescription, gicsSector, gicsSubIndustry, companyHeadquartersCity, companyHeadquartersState) VALUES ("Hoosier Energy", "Hoosier Energy is a generation and transmission cooperative providing wholesale electric wind power and services to 18 member distribution cooperatives in central and southern Indiana and southeastern Illinois. Based in Bloomington, Indiana, Hoosier Energy operates renewable energy power plants and delivers power through nearly 1700 miles of transmission network.", "Energy", "Energy Production", "Bloomington", "IN");
 INSERT INTO Client (clientName, clientDescription, gicsSector, gicsSubIndustry, companyHeadquartersCity, companyHeadquartersState) VALUES ("Pacific Tidal Energy", "Pacific Tidal Energy makes life better for millions of people every day by providing sustainable tidal energy generation services affordable, reliable and clean. Pacific Tidal is the largest tidal electric power holding company in the United States, supplying and delivering energy through local utilities to approximately 7.4 million U.S. customers.", "Energy", "Energy Service", "Charlotte", "NC");
+
+CREATE TABLE ClientNote (
+	noteID INT AUTO_INCREMENT,
+	clientID INT,
+	submitterName VARCHAR(30),
+	submitterNote VARCHAR(250),
+	submitDate DATE,
+	PRIMARY KEY (noteID),
+	FOREIGN KEY (clientID) REFERENCES Client(clientID)
+);
+
+INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (1,"Kyle Ebertin", "Testing Notes", "2018-10-25");
+INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (1,"Libbi Cowger", "Testing Notes 2", "2018-10-26");
+INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (1,"Shreya Bhattacharya", "Testing Notes 3", "2018-10-24");
+INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (2,"TJ Criswell", "Testing Notes 4", "2018-10-24");
+INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (2,"Tom Gregory", "Testing Notes 5", "2018-10-22");
 
 CREATE TABLE Site (
 	siteID INT AUTO_INCREMENT,

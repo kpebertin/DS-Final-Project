@@ -127,9 +127,9 @@
                                                 <fieldset>
                                                     <legend>Enter New Comment:</legend>
                                                     <label for="formCommentName">Name</label>
-                                                    <input type="text" id="formCommentName"><br>
+                                                    <input type="text" id="formCommentName" v-model="noteToSubmit.submitterName"><br>
                                                     <label for="formCommentText">Comment</label>
-                                                    <input type="text" id="formCommentText"><br>
+                                                    <input type="text" id="formCommentText" v-model="noteToSubmit.submitterNote"><br>
                                                     <input type="submit" value="Add Comment">
                                                 </fieldset>
                                             </form>
