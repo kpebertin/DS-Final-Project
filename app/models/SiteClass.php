@@ -2,6 +2,7 @@
 
 class SiteClass {
     public $siteID;
+    public $siteIDTwo;
     public $clientID;
     public $siteName;
     public $siteDescription;
@@ -18,6 +19,7 @@ class SiteClass {
     
     public function __construct($row) {
         $this->siteID = isset($row['siteID']) ? $row['siteID'] : null;
+        $this->siteIDTwo = isset($row['siteIDTwo']) ? $row['siteIDTwo'] : null;
         $this->clientID = isset($row['clientID']) ? $row['clientID'] : null;
         $this->siteName = isset($row['siteName']) ? $row['siteName'] : null;
         $this->siteDescription = isset($row['siteDescription']) ? $row['siteDescription'] : null;

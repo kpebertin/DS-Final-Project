@@ -59,3 +59,7 @@ h3.clientDescription {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.activeSite {
+    color: lightgray;
+}
