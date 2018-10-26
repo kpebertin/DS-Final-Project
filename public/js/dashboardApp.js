@@ -95,6 +95,7 @@ var dashboardApp = new Vue ({
             })
         )},
         submitNote: function(aError) {
+            dashboardApp.noteToSubmit.clientID = dashboardApp.activeClient['clientID'];
             const aNote = JSON.stringify(this.noteToSubmit);
             fetch (
                 '../api/clientNote.php',
