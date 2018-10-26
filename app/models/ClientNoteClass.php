@@ -37,7 +37,7 @@ class ClientNoteClass {
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute ([]);
         $arrayOfNotes = [];
-        while ($row = pdoStatement->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) {
             $aNote = new ClientNoteClass($row);
             array_push($arrayOfNotes, $aNote);
         }
