@@ -18,17 +18,19 @@ class ClientNoteClass {
     public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $dateToday = date('Y-m-d');
-        $sql = 'INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (?,?,?,$dateToday)';
+        $sql = 'INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALUES (?,?,?,?)';
         $pdoStatement = $db->prepare ($sql);
         $connection = $pdoStatement->execute (
             [
                 $this->clientID,
                 $this->submitterName,
-                $this->submitterNote
+                $this->submitterNote,
+                $dateToday
             ]
         );
         
         $this->noteID = $db->lastInsertId();
+        this->submitDate = $dateToday;
     }
     
     public static function getClientNoteData($anID) {

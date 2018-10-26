@@ -14,7 +14,7 @@ class SensorClass {
         $this->totalLifeExpectancy = isset($row['totalLifeExpectancy']) ? $row['totalLifeExpectancy'] : null;
     }
 
-        public function create() {
+    public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'INSERT INTO Sensor (sensorName, sensorDescription, manufacturer, totalLifeExpectancy) VALUES (?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);

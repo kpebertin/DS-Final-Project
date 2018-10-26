@@ -13,7 +13,7 @@ class SensorDeployedClass {
         $this->serialNumber = isset($row['serialNumber']) ? $row['serialNumber'] : null;
         $this->deployedDate = isset($row['deployedDate']) ? $row['deployedDate'] : null;
     }
-        public function create() {
+    public function create() {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'INSERT INTO SensorDeployed (sensorID, turbineDeployedID, serialNumber, deployedDate) VALUES (?,?,?,?);';
         $pdoStatement = $db->prepare ($sql);
