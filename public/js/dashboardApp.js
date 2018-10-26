@@ -69,10 +69,10 @@ var dashboardApp = new Vue ({
         setNewActiveSite: function(sid, firstTime) {
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            if(firstTime == null) {
-                document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
-            }
-            document.getElementById(sid).className += " activeSite";
+            //if(firstTime == null) {
+                //document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
+            //}
+            document.getElementById("S" + sid).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
