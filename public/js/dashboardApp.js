@@ -77,6 +77,7 @@ var dashboardApp = new Vue ({
             }
             var tempSID = "S" + sid;
             console.log(tempSID);
+            console.log(dashboardApp.sites);
             document.getElementById(tempSID).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
