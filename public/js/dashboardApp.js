@@ -72,11 +72,13 @@ var dashboardApp = new Vue ({
             if(firstTime == null) {
                 var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
                 for(var i = 0; i < siteColorChange.length; i++) {
+                    console.log("Running 1");
                     siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
                 }
                 var tempSID = "S" + sid;
                 document.getElementById(tempSID).className += " activeSite";
             } else {
+                console.log("Running 2");
                 var siteColorChange = document.getElementsByClassName("siteTableRow");
                 siteColorChange[0].className = siteColorChange[0].className + " activeSite";
             }
