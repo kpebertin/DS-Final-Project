@@ -116,6 +116,9 @@ var dashboardApp = new Vue ({
                 console.log("Error posting note.");
                 console.log(err);
             })
+        },
+        emailLink: function(em) {
+            return "mailto:" + em;
         }
     },
     created: function() {
