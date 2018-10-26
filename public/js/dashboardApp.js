@@ -69,28 +69,12 @@ var dashboardApp = new Vue ({
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
         setNewActiveSite: function(sid, firstTime) {
-            /*if(firstTime == null) {
-                var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
-                for(var i = 0; i < siteColorChange.length; i++) {
-                    console.log("Running 1");
-                    siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
-                }
-                var tempSID = "S" + sid;
-                document.getElementById(tempSID).className += " activeSite";
-            } else {
-                console.log("Running 2");
-                var siteColorChange = document.getElementsByClassName("siteTableRow");
-                siteColorChange[0].className = siteColorChange[0].className + " activeSite";
-            }*/
             var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
             for(var i = 0; i < siteColorChange.length; i++) {
-                console.log("Running 1");
                 siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
             }
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            //var tempSID = "S" + sid;
-            //document.getElementById(tempSID).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
