@@ -8,8 +8,7 @@ var dashboardApp = new Vue ({
         turbineDeployed: [],
         activeTurbine: [],
         sensorDeployed: [],
-        timeSeriesData: [],
-        emwpdata: []
+        notes: []
     },
     computed: {},
     methods: {
@@ -22,6 +21,7 @@ var dashboardApp = new Vue ({
                 dashboardApp.clients = myJSON
                 dashboardApp.activeClient = myJSON[0]
                 dashboardApp.fetchSites(myJSON[0]['clientID'])
+                dashboardApp.fetchNotes(myJSON[0]['clientID'])
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(clientData.php)");
@@ -78,7 +78,20 @@ var dashboardApp = new Vue ({
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
-        }
+        },
+        fetchNotes: function(cid) {(
+            fetch('../api/clientNotes.php?clientID=' + cid)
+            .then( function(response) {
+                return response.json();
+            })
+            .then( function(myJSON) {
+                dashboardApp.notes = myJSON
+            })
+            .error( function(err) {
+                console.log("Fetch error on fetch(clientNotes.php)");
+                console.log(err);
+            })
+        )}
     },
     created: function() {
         this.fetchClients();
