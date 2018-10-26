@@ -68,7 +68,9 @@ var dashboardApp = new Vue ({
         },
         setNewActiveSite: function(sid, firstTime) {
             dashboardApp.turbineDeployed = [];
+            console.log(sid);
             dashboardApp.fetchTurbinesDeployed(sid);
+            console.log("Is problem before or after here");
             //if(firstTime == null) {
                 //document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
             //}
