@@ -39,7 +39,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON;
                 dashboardApp.turbineDeployed = [];
-                dashboardApp.setNewActiveSite(dashboardApp.sites[0]['siteID']);
+                dashboardApp.setNewActiveSite(dashboardApp.sites[0]['siteID'], "Y");
                 dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
             .catch( function(err) {
@@ -66,10 +66,12 @@ var dashboardApp = new Vue ({
             dashboardApp.activeClient = dashboardApp.clients[Number(c) - 1];
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
-        setNewActiveSite: function(sid) {
+        setNewActiveSite: function(sid, firstTime) {
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
+            if(firstTime == null) {
+                document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
+            }
             document.getElementById("S" + sid).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
