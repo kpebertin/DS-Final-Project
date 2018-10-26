@@ -82,7 +82,7 @@ var dashboardApp = new Vue ({
             return "openTab(event, " + tid + ")";
         },
         fetchNotes: function(cid) {(
-            fetch('../api/clientNotes.php?clientID=' + cid)
+            fetch('../api/clientNote.php?clientID=' + cid)
             .then( function(response) {
                 return response.json();
             })
@@ -90,7 +90,7 @@ var dashboardApp = new Vue ({
                 dashboardApp.notes = myJSON
             })
             .error( function(err) {
-                console.log("Fetch error on fetch(clientNotes.php)");
+                console.log("Fetch error on fetch(clientNote.php)");
                 console.log(err);
             })
         )},
