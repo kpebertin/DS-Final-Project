@@ -81,7 +81,7 @@
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</td>
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</td>
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</td>
-                                                    <td class="siteTable" v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</td>
+                                                    <td class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</a></td>
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.addressCity }}, {{ s.addressState }}</td>
                                                 </tr>
                                             </tbody>
