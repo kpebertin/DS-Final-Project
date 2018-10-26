@@ -68,7 +68,7 @@ var dashboardApp = new Vue ({
         setNewActiveSite: function(sid) {
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            document.getElementsByClassName("siteTable activeSite").replace(" activeSite", "");
+            document.getElementsByClassName("siteTable activeSite").className.replace(" activeSite", "");
             document.getElementById("S" + sid).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
