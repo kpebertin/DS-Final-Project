@@ -30,7 +30,7 @@ class ClientNoteClass {
         );
         
         $this->noteID = $db->lastInsertId();
-        this->submitDate = $dateToday;
+        $this->submitDate = $dateToday;
     }
     
     public static function getClientNoteData($anID) {
