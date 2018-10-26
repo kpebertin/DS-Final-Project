@@ -63,6 +63,7 @@ var dashboardApp = new Vue ({
         )},
         newActiveClient: function(c) {
             dashboardApp.activeClient = dashboardApp.clients[Number(c) - 1];
+            dashboardApp.turbineDeployed = [];
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
         setNewActiveSite: function(sid) {
