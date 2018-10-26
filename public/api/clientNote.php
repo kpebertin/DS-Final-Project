@@ -2,7 +2,7 @@
 
 require '../../app/common.php';
 
-if ($_SERVER['REQUEST METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require 'postClientNote.php';
     die;
 }
