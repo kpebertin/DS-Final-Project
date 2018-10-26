@@ -83,13 +83,10 @@ var dashboardApp = new Vue ({
         fetchNotes: function(cid) {(
             fetch('../api/clientNote.php?clientID=' + cid)
             .then( function(response) {
-                console.log("Test 1");
                 return response.json();
             })
             .then( function(myJSON) {
-                console.log("Test 2");
                 dashboardApp.notes = myJSON;
-                console.log("Test 3");
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(clientNote.php)");
