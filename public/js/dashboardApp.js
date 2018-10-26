@@ -74,6 +74,8 @@ var dashboardApp = new Vue ({
                 for(var i = 0; i < siteColorChange.length; i++) {
                     siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
                 }
+            } else {
+                setTimeout(function(){return true;},500);
             }
             var tempSID = "S" + sid;
             console.log(tempSID);
