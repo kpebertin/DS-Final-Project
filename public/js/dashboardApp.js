@@ -84,7 +84,7 @@ var dashboardApp = new Vue ({
         fetchNotes: function(cid) {(
             fetch('../api/clientNote.php?clientID=' + cid)
             .then( function(response) {
-                return response.json();
+                return response.json()
             })
             .then( function(myJSON) {
                 dashboardApp.notes = myJSON
