@@ -39,7 +39,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.sites = myJSON;
                 dashboardApp.turbineDeployed = [];
-                console.log(sites[0]['siteID']);
+                console.log(dashboardApp.sites[0]['siteID']);
                 dashboardApp.setNewActiveSite(dashboardApp.sites[0]['siteID'], "Y");
                 dashboardApp.fetchTurbinesDeployed(dashboardApp.sites[0]['siteID']);
             })
