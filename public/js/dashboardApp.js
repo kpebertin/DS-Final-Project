@@ -91,7 +91,7 @@ var dashboardApp = new Vue ({
                 dashboardApp.notes = myJSON;
                 console.log("Test 3");
             })
-            .error( function(err) {
+            .catch( function(err) {
                 console.log("Fetch error on fetch(clientNote.php)");
                 console.log(err);
             })
