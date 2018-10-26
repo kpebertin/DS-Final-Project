@@ -55,6 +55,8 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
+                    var tempSID = "S" + tid;
+                    document.getElementById(tempSID).className += " activeSite";
                 }
             })
             .catch( function(err) {
@@ -67,8 +69,6 @@ var dashboardApp = new Vue ({
             dashboardApp.fetchSites(dashboardApp.clients[Number(c) - 1]['clientID']);
         },
         setNewActiveSite: function(sid, firstTime) {
-            dashboardApp.turbineDeployed = [];
-            dashboardApp.fetchTurbinesDeployed(sid);
             /*if(firstTime == null) {
                 var siteColorChange = document.getElementsByClassName("siteTableRow activeSite");
                 for(var i = 0; i < siteColorChange.length; i++) {
@@ -87,8 +87,10 @@ var dashboardApp = new Vue ({
                 console.log("Running 1");
                 siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
             }
-            var tempSID = "S" + sid;
-            document.getElementById(tempSID).className += " activeSite";
+            dashboardApp.turbineDeployed = [];
+            dashboardApp.fetchTurbinesDeployed(sid);
+            //var tempSID = "S" + sid;
+            //document.getElementById(tempSID).className += " activeSite";
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
