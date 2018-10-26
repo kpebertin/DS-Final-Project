@@ -76,8 +76,8 @@
                                                     <th class="siteTable">Site Location</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="siteTable" v-for="s in sites">
-                                                <tr class="siteTable">
+                                            <tbody class="siteTable">
+                                                <tr class="siteTable" v-for="s in sites" @click="setNewActiveSite(s.siteID)">
                                                     <td class="siteTable">{{ s.siteName }}</td>
                                                     <td class="siteTable">{{ s.siteDescription }}</td>
                                                     <td class="siteTable">{{ s.primaryContact }}</td>
@@ -107,7 +107,10 @@
                     </div>
                 </div>
             </main>
-            <footer></footer>
+            <footer>
+                <br><br>
+                <p>Developed By: Kyle Ebertin, Shreya Bhattacharya, Libbi Cowger, and TJ Criswell</p>
+            </footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/dashboard.js"></script>
