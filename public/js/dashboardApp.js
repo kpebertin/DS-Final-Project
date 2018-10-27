@@ -162,7 +162,7 @@ var dashboardApp = new Vue ({
                 if(myJSON.length > 0) {
                     dashboardApp.sensorDeployed.push(myJSON[0]);
                 } else {
-                    continue;
+                    console.log("Length was zero.");
                 }
             })
             .catch( function(err) {
