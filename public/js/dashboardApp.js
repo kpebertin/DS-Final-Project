@@ -119,6 +119,10 @@ var dashboardApp = new Vue ({
         },
         emailLink: function(em) {
             return "mailto:" + em;
+        },
+        setTabWidth: function() {
+            var numberOfTabs = 3 + dashboardApp.turbineDeployed.length;
+            console.log(numberOfTabs);
         }
     },
     created: function() {
