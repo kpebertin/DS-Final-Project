@@ -42,7 +42,7 @@ h3.clientDescription {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    width: 10%;
+    /*width: 10%;*/
 }
 
 .tab button:hover {
