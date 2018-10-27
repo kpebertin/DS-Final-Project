@@ -146,7 +146,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 dashboardApp.activeTurbine = myJSON[0];
                 dashboardApp.sensorDeployed = [];
-                dashboardApp.fetchSensorsDeployed(myJSON[0]['turbineID']);
+                dashboardApp.fetchSensorsDeployed(myJSON[0]['turbineDeployedID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineData.php)");
