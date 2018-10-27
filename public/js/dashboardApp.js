@@ -64,12 +64,9 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
-                    console.log(myJSON[0]['turbineID']);
                     dashboardApp.fetchActiveTurbine(myJSON[0]['turbineID']);
-                    console.log("Set active turbine");
                 } else {
                     dashboardApp.fetchActiveTurbine(1);
-                    console.log("Set default active turbine");
                 }
                 document.getElementById("defaultOpen").click();
             })
@@ -147,13 +144,32 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
-                dashboardApp.activeTurbine = myJSON[0]
+                dashboardApp.activeTurbine = myJSON[0];
+                dashboardApp.sensorDeployed = [];
+                dashboardApp.fetchSensorsDeployed(myJSON[0]['turbineID']);
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineData.php)");
                 console.log(err);
             })
-        }
+        },
+        fetchSensorsDeployed: function(tid) {(
+            fetch('../api/sensorDeployedData.php?turbineID=' + tid)
+            .then( function(response) {
+                return response.json()
+            })
+            .then( function(myJSON) {
+                if(myJSON.length > 0) {
+                    dashboardApp.sensorDeployed.push(myJSON[0]);
+                } else {
+                    continue;
+                }
+            })
+            .catch( function(err) {
+                console.log("Fetch error on fetch(sensorDeployedData.php)");
+                console.log(err);
+            })
+        )}
     },
     created: function() {
         this.fetchClients();
