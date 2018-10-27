@@ -64,6 +64,9 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
+                    dashboardApp.fetchActiveTurbine(myJSON[0]['turbineID']);
+                } else {
+                    dashboardApp.fetchActiveTurbine(1);
                 }
                 document.getElementById("defaultOpen").click();
             })
