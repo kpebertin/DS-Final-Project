@@ -16,3 +16,8 @@
 .col-manual-padding {
     padding-top: 20px;
 }
+
+#map {
+    height: 400px;
+    width 100px;
+}
