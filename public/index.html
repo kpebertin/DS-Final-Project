@@ -100,7 +100,23 @@
                                 <button v-for="t in turbineDeployed" class="tabLink" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
                             </div>
                             <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontent">
-                                    <h1>Test {{t.turbineID}}</h1>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
+                                            <h3>Turbine Information</h3>
+                                            <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
+                                            <p><b>Turbine Description:</b> {{activeTurbine.turbineDescription}}</p>
+                                            <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
+                                            <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
+                                            <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding">
+                                            
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding"></div>
+                                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-manual-padding"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div id="clientNotes" class="tabcontent">
                                 <div class="container-fluid">
@@ -139,7 +155,7 @@
                                 </div>
                             </div>
                             <div id="siteGoogleMaps" class="tabcontent">
-                                
+                                <h1>Google Maps plugin will go here</h1>
                             </div>
                             <div id="allTurbines" class="tabcontent">
                                 <h1>All Turbines</h1>

@@ -83,6 +83,7 @@ var dashboardApp = new Vue ({
             }
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
+            document.getElementById("defaultOpen").click();
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
