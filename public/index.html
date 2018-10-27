@@ -95,6 +95,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">  
                             <div class="tab">
                                 <button class="tabLink" id="defaultOpen" onclick="openTab(event, 'clientNotes')">Client Notes</button>
+                                <button class="tabLink" onclick="openTab(event, 'siteGoogleMaps')">Map of Site Location</button>
                                 <button class="tabLink" onclick="openTab(event, 'allTurbines')">All Turbines</button>
                                 <button v-for="t in turbineDeployed" class="tabLink" :onclick="setOnClickTurbine(t.turbineID)">Turbine {{t.serialNumber}}</button>
                             </div>
@@ -134,11 +135,11 @@
                                                 </fieldset>
                                             </form>
                                         </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 col-manual-padding">
-                                            <h1>Here is where google maps will be used.</h1>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="siteGoogleMaps" class="tabcontent">
+                                
                             </div>
                             <div id="allTurbines" class="tabcontent">
                                 <h1>All Turbines</h1>
