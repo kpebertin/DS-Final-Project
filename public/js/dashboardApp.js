@@ -11,6 +11,9 @@ var dashboardApp = new Vue ({
         notes: [],
         noteToSubmit: {}
     },
+    watch: {
+        turbineDeployed: dashboardApp.setTabWidth()
+    },
     computed: {},
     methods: {
         fetchClients: function() {(
