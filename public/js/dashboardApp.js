@@ -133,6 +133,19 @@ var dashboardApp = new Vue ({
             for(var i = 0; i < listOfTabs.length; i++) {
                 listOfTabs[i].style.width = 'calc(100% / ' + numberOfTabs + ')';
             }
+        },
+        fetchActiveTurbine: function(tid) {
+            fetch('../api/turbineData.php?turbineID=' + tid)
+            .then( function(response) {
+                return response.json()
+            })
+            .then( function(myJSON) {
+                dashboardApp.activeTurbine = myJSON[0]
+            })
+            .catch( function(err) {
+                console.log("Fetch error on fetch(turbineData.php)");
+                console.log(err);
+            })
         }
     },
     created: function() {
