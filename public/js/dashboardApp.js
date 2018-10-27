@@ -65,9 +65,7 @@ var dashboardApp = new Vue ({
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
                     dashboardApp.fetchActiveTurbine(myJSON[0]['turbineID']);
-                    dashboardApp.fetchSensorsDeployed(myJSON[0]['turbineDeployedID']);
                 } else {
-                    dashboardApp.fetchActiveTurbine(1);
                     dashboardApp.fetchActiveTurbine(1);
                 }
                 document.getElementById("defaultOpen").click();
@@ -147,6 +145,19 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.activeTurbine = myJSON[0];
+                if(dashboardApp.turbineDeployed.length < 1) {
+                    dashboardApp.fetchSensorsDeployed(1);
+                } else {
+                    var wasItRun = false;
+                    for(var i = 0; i < dashboardApp.turbineDeployed.length; i++) {
+                        if(dashboardApp.turbineDeployed[i]['turbineID'] == dashboardApp.activeTurbine['turbineID']) {
+                            dashboardApp.fetchSensorsDeployed(dashboardApp.turbineDeployed[i]['turbineDeployedID']);
+                            wasItRun = true;
+                        }
+                    } if(!wasItRun) {
+                        dashboardApp.fetchSensorsDeployed(1);
+                    }
+                }
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineData.php)");
