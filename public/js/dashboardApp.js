@@ -65,6 +65,7 @@ var dashboardApp = new Vue ({
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
                 }
+                document.getElementById("defaultOpen").click();
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineDeployedData.php)");
@@ -83,7 +84,6 @@ var dashboardApp = new Vue ({
             }
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            document.getElementById("defaultOpen").click();
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
@@ -141,7 +141,6 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
-                console.log(myJSON);
                 dashboardApp.activeTurbine = myJSON[0]
             })
             .catch( function(err) {
