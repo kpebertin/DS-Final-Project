@@ -1,7 +1,9 @@
 var openTab = function(evt, turbineID) {
     var i, tabcontent, tablinks;
     
-    dashboardApp.fetchActiveTurbine(turbineID);
+    if(typeof turbineID == 'number') {
+        dashboardApp.fetchActiveTurbine(turbineID);
+    }
     
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
