@@ -11,9 +11,9 @@ class TurbineClass {
         $this->turbineID = isset($row['turbineID']) ? $row['turbineID'] : null;
         $this->turbineName = isset($row['turbineName']) ? $row['turbineName'] : null;
         $this->turbineDescription = isset($row['turbineDescription']) ? $row['turbineDescription'] : null;
-        $this->capacity = isset($row['capacity']) ? $row['capacity'] : null;
-        $this->rampUpTime = isset($row['rampUpTime']) ? $row['rampUpTime'] : null;
-        $this->maintenaceInterval = isset($row['maintenanceInterval']) ? $row['maintenanceInterval'] : null;
+        $this->capacity = isset($row['capacity']) ? (int)$row['capacity'] : null;
+        $this->rampUpTime = isset($row['rampUpTime']) ? (int)$row['rampUpTime'] : null;
+        $this->maintenanceInterval = isset($row['maintenanceInterval']) ? (int)$row['maintenanceInterval'] : null;
     }
 
     public function create() {
