@@ -57,6 +57,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
+                    dashboardApp.setTabWidth();
                 }
             })
             .catch( function(err) {
