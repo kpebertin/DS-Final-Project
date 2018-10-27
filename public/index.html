@@ -179,13 +179,6 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/dashboard.js"></script>
         <script src="js/dashboardApp.js"></script>
-        <script>
-            function initMap() {
-                var uluru = {lat:-25.344, lng: 131.036};
-                var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: uluru});
-                var marker = new google.maps.Marker({position: uluru, map: map});
-            }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmLn3qnTOlLky0fWvOcsuCrhMTLcqZd7c&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmLn3qnTOlLky0fWvOcsuCrhMTLcqZd7c&callback=loadMap"></script>
     </body>
 </html>

@@ -9,7 +9,15 @@ var dashboardApp = new Vue ({
         activeTurbine: [],
         sensorDeployed: [],
         notes: [],
-        noteToSubmit: {}
+        noteToSubmit: {},
+        timeSeriesData: {
+            "dataCollectedDate": [],
+            "output": [],
+            "heatRate": [],
+            "compressorEfficiency": [],
+            "availability": [],
+            
+        }
     },
     watch: {
         turbineDeployed: function (val) {
@@ -87,6 +95,7 @@ var dashboardApp = new Vue ({
             }
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
+            dashboardApp.loadMap();
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
@@ -172,6 +181,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.sensorDeployed.push(myJSON[0]);
+                    //dashboardApp.fetchSensorTimeSeries(myJSON[0]['sensorDeployedID']);
                 } else {
                     console.log("Length was zero.");
                 }
@@ -180,7 +190,24 @@ var dashboardApp = new Vue ({
                 console.log("Fetch error on fetch(sensorDeployedData.php)");
                 console.log(err);
             })
-        )}
+        )},
+        fetchSensorTimeSeries: function(sid) {(
+            fetch('../api/timeSeriesData.php?')
+            .then( function(response) {
+                return response.json();
+            })
+            .then( function(myJSON) {
+                console.log("Finished here");
+            })
+        )},
+        loadMap: function() {
+            var siteLocation = {
+                lat: dashboardApp.activeSite.lat,
+                lng: dashboardApp.activeSite.lng
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: siteLocation});
+            var marker = new google.maps.Marker({position: siteLocation, map: map});
+        }
     },
     created: function() {
         this.fetchClients();

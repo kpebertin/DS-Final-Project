@@ -16,6 +16,8 @@ class SiteClass {
     public $addressState;
     public $addressZip;
     public $addressCountry;
+    public $lat;
+    public $lng;
     
     public function __construct($row) {
         $this->siteID = isset($row['siteID']) ? $row['siteID'] : null;
@@ -33,6 +35,8 @@ class SiteClass {
         $this->addressState = isset($row['addressState']) ? $row['addressState'] : null;
         $this->addressZip = isset($row['addressZip']) ? $row['addressZip'] : null;
         $this->addressCountry = isset($row['addressCountry']) ? $row['addressCountry'] : null;
+        $this->lat = isset($row['lat']) ? (float)$row['lat'] : null;
+        $this->lng = isset($row['lng']) ? (float)$row['lng'] : null;
     }
 
      public function create() {
