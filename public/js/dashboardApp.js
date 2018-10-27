@@ -13,7 +13,9 @@ var dashboardApp = new Vue ({
     },
     watch: {
         turbineDeployed: function (val) {
-            dashboardApp.setTabWidth();
+            setTimeout( function() {
+                dashboardApp.setTabWidth();
+            }, 500);
         }
     },
     computed: {},
@@ -62,7 +64,6 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
                     dashboardApp.turbineDeployed.push(myJSON[0]);
-                    dashboardApp.setTabWidth();
                 }
             })
             .catch( function(err) {
@@ -82,7 +83,6 @@ var dashboardApp = new Vue ({
             }
             dashboardApp.turbineDeployed = [];
             dashboardApp.fetchTurbinesDeployed(sid);
-            dashboardApp.setTabWidth();
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
