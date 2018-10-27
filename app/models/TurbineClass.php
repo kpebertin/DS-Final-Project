@@ -5,7 +5,7 @@ class TurbineClass {
     public $turbineDescription;
     public $capacity;
     public $rampUpTime;
-    public $maintenaceInterval;
+    public $maintenanceInterval;
 
     public function __construct($row) {
         $this->turbineID = isset($row['turbineID']) ? $row['turbineID'] : null;
@@ -13,7 +13,7 @@ class TurbineClass {
         $this->turbineDescription = isset($row['turbineDescription']) ? $row['turbineDescription'] : null;
         $this->capacity = isset($row['capacity']) ? $row['capacity'] : null;
         $this->rampUpTime = isset($row['rampUpTime']) ? $row['rampUpTime'] : null;
-        $this->maintenaceInterval = isset($row['maintenaceInterval']) ? $row['maintenaceInterval'] : null;
+        $this->maintenaceInterval = isset($row['maintenanceInterval']) ? $row['maintenanceInterval'] : null;
     }
 
     public function create() {
