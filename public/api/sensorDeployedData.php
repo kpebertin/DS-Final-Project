@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     die;
 }
 
-$aTurbineDeployedID = $_GET['turbineDeployedID'] ?? "";
+$aTurbineDeployedID = $_GET['turbineID'] ?? "";
 
 #echo $aClientID;
 
