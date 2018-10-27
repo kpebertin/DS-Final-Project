@@ -140,6 +140,7 @@ var dashboardApp = new Vue ({
                 return response.json()
             })
             .then( function(myJSON) {
+                console.log(myJSON);
                 dashboardApp.activeTurbine = myJSON[0]
             })
             .catch( function(err) {
