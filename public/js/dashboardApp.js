@@ -194,7 +194,7 @@ var dashboardApp = new Vue ({
             })
         )},
         fetchSensorTimeSeries: function(sid) {(
-            fetch('../api/timeSeriesData.php?' + sid)
+            fetch('../api/timeSeriesData.php?sensorDeployedID=' + sid)
             .then( function(response) {
                 return response.json();
             })
