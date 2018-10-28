@@ -17,12 +17,6 @@ var dashboardApp = new Vue ({
                 dashboardApp.setTabWidth();
             }, 500);
         },
-        activeSite: function (val) {
-            setTimeout( function() {
-                console.log(dashboardApp.activeSite.lat);
-                console.log(dashboardApp.activeSite.lng);
-            }, 500);
-        }
     },
     computed: {},
     methods: {
