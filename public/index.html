@@ -101,7 +101,7 @@
                             <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontent">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding">
                                             <h3>Turbine Information</h3>
                                             <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
                                             <p><b>Turbine Description:</b> {{activeTurbine.turbineDescription}}</p>
@@ -109,15 +109,15 @@
                                             <p><b>Ramp Up Time:</b> {{activeTurbine.rampUpTime}}</p>
                                             <p><b>Maintenance Interval:</b> {{activeTurbine.maintenanceInterval}}</p>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding">
                                             <h3>Sensor Information</h3>
                                             <div v-for="sd in sensorDeployed">
                                                 <p><b>Serial Number:</b> {{sd.serialNumber}}</p>
                                                 <p><b>Sensor Deployed Date:</b> {{sd.deployedDate}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-manual-padding">
-                                            
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding" v-if="sensorDeployed.length > 0">
+                                            <h1>Test</h1>
                                         </div>
                                     </div>
                                 </div>
