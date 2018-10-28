@@ -10,22 +10,16 @@ var dashboardApp = new Vue ({
         sensorDeployed: [],
         notes: [],
         noteToSubmit: {},
-        timeSeriesData: {
-            "dataCollectedDate": [],
-            "output": [],
-            "heatRate": [],
-            "compressorEfficiency": [],
-            "availability": [],
-            
-        }
     },
     watch: {
         turbineDeployed: function (val) {
+            console.log("Watched tubrine be deployed.");
             setTimeout( function() {
                 dashboardApp.setTabWidth();
             }, 500);
         },
         activeSite: function (val) {
+            console.log("Watched site be active");
             setTimeout( function() {
                 console.log(dashboardApp.activeSite.lat);
                 console.log(dashboardApp.activeSite.lng);
@@ -41,7 +35,9 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.clients = myJSON
+                console.log("Found my client")
                 dashboardApp.activeClient = myJSON[0]
+                console.log("Set my active client and fetching sites")
                 dashboardApp.fetchSites(myJSON[0]['clientID'])
                 dashboardApp.fetchNotes(myJSON[0]['clientID'])
             })
@@ -222,6 +218,7 @@ var dashboardApp = new Vue ({
         }*/
     },
     created: function() {
+        console.log("Now fetching clients");
         this.fetchClients();
     }
 })
