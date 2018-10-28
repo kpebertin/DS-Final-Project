@@ -30,7 +30,7 @@ class SensorDeployedClass {
 
     public static function getSensorDeployedData($sensorDeployedID) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        $sql = 'SELECT * FROM SensorDeployed WHERE sensorDeployedID = ?;';
+        $sql = 'SELECT * FROM SensorDeployed WHERE turbineDeployedID = ?;';
         $pdoStatement = $db->prepare($sql);
         $connection = $pdoStatement->execute([$sensorDeployedID]);
         $arrayOfSensorsDeployed = [];

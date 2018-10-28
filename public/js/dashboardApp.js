@@ -10,6 +10,7 @@ var dashboardApp = new Vue ({
         sensorDeployed: [],
         notes: [],
         noteToSubmit: {},
+        timeSeriesData: []
     },
     watch: {
         turbineDeployed: function (val) {
@@ -150,6 +151,8 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.activeTurbine = myJSON[0];
+                dashboardApp.sensorDeployed = [];
+                dashboardApp.timeSeriesData = [];
                 if(dashboardApp.turbineDeployed.length < 1) {
                     dashboardApp.fetchSensorsDeployed(1);
                 } else {
@@ -176,10 +179,13 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
-                    dashboardApp.sensorDeployed.push(myJSON[0]);
-                    //dashboardApp.fetchSensorTimeSeries(myJSON[0]['sensorDeployedID']);
+                    for (var i = 0; i < myJSON.length; i++) {
+                        dashboardApp.sensorDeployed.push(myJSON[i]);
+                        dashboardApp.fetchSensorTimeSeries(myJSON[i]['sensorDeployedID']);
+                    }
                 } else {
-                    console.log("Length was zero.");
+                    console.log("No Sensors.");
+                    dashboardApp.sensorDeployed
                 }
             })
             .catch( function(err) {
@@ -188,12 +194,16 @@ var dashboardApp = new Vue ({
             })
         )},
         fetchSensorTimeSeries: function(sid) {(
-            fetch('../api/timeSeriesData.php?')
+            fetch('../api/timeSeriesData.php?' + sid)
             .then( function(response) {
                 return response.json();
             })
             .then( function(myJSON) {
-                console.log("Finished here");
+                dashboardApp.timeSeriesData = myJSON
+            })
+            .catch( function(err) {
+                console.log("Error fetching time series data");
+                console.log(err);
             })
         )}
     },
