@@ -205,7 +205,25 @@ var dashboardApp = new Vue ({
                 console.log("Error fetching time series data");
                 console.log(err);
             })
-        )}
+        )},
+        buildOutputChart: function() {
+            Highcharts.chart(
+                'outputChart',
+                {
+                    title: {text: 'Output Chart'},
+                    xAxis: {title: {text: 'Time'}},
+                    yAxis: {title: {text: 'Output'}},
+                    legend: {enabled: false},
+                    plotOptions: {
+                        series: [{
+                            type: 'line',
+                            name: 'Output Chart 2',
+                            data: dashboardApp.timeSeriesData.map(item => [item.output])
+                        }]
+                    }
+                }
+            )
+        }
     },
     created: function() {
         this.fetchClients();

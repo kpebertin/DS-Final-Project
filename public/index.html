@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding" v-if="sensorDeployed.length > 0">
-                                            <h1>Test</h1>
+                                            <div id="outputChart"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,5 +183,6 @@
             }
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmLn3qnTOlLky0fWvOcsuCrhMTLcqZd7c&callback=initMap"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
     </body>
 </html>
