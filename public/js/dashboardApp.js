@@ -35,9 +35,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.clients = myJSON
-                console.log("Found my client")
                 dashboardApp.activeClient = myJSON[0]
-                console.log("Set my active client and fetching sites")
                 dashboardApp.fetchSites(myJSON[0]['clientID'])
                 dashboardApp.fetchNotes(myJSON[0]['clientID'])
             })
@@ -76,18 +74,12 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 if(myJSON.length > 0) {
-                    console.log("FINE HERE 2");
                     dashboardApp.turbineDeployed.push(myJSON[0]);
-                    console.log("FINE HERE 3");
                     dashboardApp.fetchActiveTurbine(myJSON[0]['turbineID']);
-                    console.log("FINE HERE 4");
                 } else {
                     dashboardApp.fetchActiveTurbine(1);
-                    console.log("FINE HERE 5");
                 }
-                console.log("FINE HERE 6");
                 document.getElementById("defaultOpen").click();
-                console.log("FINE HERE 7");
             })
             .catch( function(err) {
                 console.log("Fetch error on fetch(turbineDeployedData.php)");
