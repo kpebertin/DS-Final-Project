@@ -138,7 +138,7 @@ var dashboardApp = new Vue ({
             return "mailto:" + em;
         },
         setTabWidth: function() {
-            var numberOfTabs = 3 + dashboardApp.turbineDeployed.length;
+            var numberOfTabs = 2 + dashboardApp.turbineDeployed.length;
             var listOfTabs = document.querySelectorAll('.tabLink');
             for(var i = 0; i < listOfTabs.length; i++) {
                 listOfTabs[i].style.width = 'calc(100% / ' + numberOfTabs + ')';
