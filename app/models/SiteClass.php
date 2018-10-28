@@ -62,7 +62,9 @@ class SiteClass {
             ]
         );
          $this->siteID = $db->lastInsertId();
+         $this->siteIDTwo = "S" + $this->siteID
      }
+    
     public static function getSiteData($aClient) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
         $sql = 'SELECT * FROM Site WHERE clientID = ?;';
