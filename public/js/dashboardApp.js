@@ -92,6 +92,11 @@ var dashboardApp = new Vue ({
                 siteColorChange[i].className = siteColorChange[i].className.replace(" activeSite", "");
             }
             dashboardApp.turbineDeployed = [];
+            for(var i = 0; i < dashboardApp.sites.length; i++) {
+                if(dashboardApp.sites[i]['siteID'] == sid) {
+                    dashboardApp.activeSite = dashboardApp.sites[i];
+                }
+            }
             dashboardApp.fetchTurbinesDeployed(sid);
             initMap();
         },
