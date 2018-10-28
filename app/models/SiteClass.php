@@ -62,7 +62,7 @@ class SiteClass {
             ]
         );
          $this->siteID = $db->lastInsertId();
-         $this->siteIDTwo = "S" + $this->siteID
+         $this->siteIDTwo = "S" + $this->siteID;
      }
     
     public static function getSiteData($aClient) {
