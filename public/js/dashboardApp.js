@@ -64,7 +64,9 @@ var dashboardApp = new Vue ({
                 console.log(err);
             })
         )},
-        fetchTurbinesDeployed: function(tid) {(
+        fetchTurbinesDeployed: function(tid) {
+            console.log(tid);
+            (
             fetch('../api/turbineDeployedData.php?siteID=' + tid)
             .then( function(response) {
                 var tempSID = "S" + tid;
