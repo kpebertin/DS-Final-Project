@@ -42,7 +42,7 @@ INSERT INTO ClientNote (clientID, submitterName, submitterNote, submitDate) VALU
 
 CREATE TABLE Site (
 	siteID INT AUTO_INCREMENT,
-	siteIDTwo VARCHR(3),
+	siteIDTwo VARCHAR(3),
 	clientID INT,
 	siteName VARCHAR(30),
 	siteDescription VARCHAR(250),
