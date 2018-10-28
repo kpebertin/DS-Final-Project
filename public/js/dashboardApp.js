@@ -13,13 +13,11 @@ var dashboardApp = new Vue ({
     },
     watch: {
         turbineDeployed: function (val) {
-            console.log("Watched tubrine be deployed.");
             setTimeout( function() {
                 dashboardApp.setTabWidth();
             }, 500);
         },
         activeSite: function (val) {
-            console.log("Watched site be active");
             setTimeout( function() {
                 console.log(dashboardApp.activeSite.lat);
                 console.log(dashboardApp.activeSite.lng);
@@ -62,14 +60,11 @@ var dashboardApp = new Vue ({
                 console.log(err);
             })
         )},
-        fetchTurbinesDeployed: function(tid) {
-            console.log(tid);
-            (
+        fetchTurbinesDeployed: function(tid) {(
             fetch('../api/turbineDeployedData.php?siteID=' + tid)
             .then( function(response) {
                 var tempSID = "S" + tid;
                 document.getElementById(tempSID).className += " activeSite";
-                console.log("FINE HERE 1");
                 return response.json();
             })
             .then( function(myJSON) {
@@ -118,7 +113,6 @@ var dashboardApp = new Vue ({
         submitNote: function(aError) {
             dashboardApp.noteToSubmit.clientID = parseInt(dashboardApp.activeClient['clientID']);
             const aNote = JSON.stringify(this.noteToSubmit);
-            console.log(aNote);
             fetch (
                 '../api/clientNote.php',
                 {
@@ -212,7 +206,6 @@ var dashboardApp = new Vue ({
         }*/
     },
     created: function() {
-        console.log("Now fetching clients");
         this.fetchClients();
     }
 })
