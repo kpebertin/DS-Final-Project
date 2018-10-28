@@ -195,15 +195,7 @@ var dashboardApp = new Vue ({
             .then( function(myJSON) {
                 console.log("Finished here");
             })
-        )}/*,
-        loadMap: function() {
-            var siteLocation = {
-                lat: dashboardApp.activeSite.lat,
-                lng: dashboardApp.activeSite.lng
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: siteLocation});
-            var marker = new google.maps.Marker({position: siteLocation, map: map});
-        }*/
+        )}
     },
     created: function() {
         this.fetchClients();
