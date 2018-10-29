@@ -18,6 +18,11 @@ var dashboardApp = new Vue ({
                 dashboardApp.setTabWidth();
             }, 500);
         },
+        sensorDeployed: function (val) {
+            setTimeout( function() {
+                dashboardApp.setTabWidthSD();
+            }, 500);
+        }
     },
     computed: {},
     methods: {
@@ -143,6 +148,13 @@ var dashboardApp = new Vue ({
         setTabWidth: function() {
             var numberOfTabs = 2 + dashboardApp.turbineDeployed.length;
             var listOfTabs = document.querySelectorAll('.tabLink');
+            for(var i = 0; i < listOfTabs.length; i++) {
+                listOfTabs[i].style.width = 'calc(100% / ' + numberOfTabs + ')';
+            }
+        },
+        setTabWidthSD: function() {
+            var numberOfTabs = 1 + dashboardApp.sensorDeployed.length;
+            var listOfTabs = document.querySelectorAll('.tabLinkSD');
             for(var i = 0; i < listOfTabs.length; i++) {
                 listOfTabs[i].style.width = 'calc(100% / ' + numberOfTabs + ')';
             }
