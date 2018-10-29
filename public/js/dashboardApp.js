@@ -208,7 +208,12 @@ var dashboardApp = new Vue ({
             })
         )},
         buildOutputChart: function() {
-           Highcharts.chart('outputChart', {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData[0].length; i++) {
+                data.push([dashboardApp[0][i].dataCollectedDate, dashboardApp[0][i].output]);
+            }
+            console.log(data);
+            Highcharts.chart('outputChart', {
                 chart: {
                     zoomType: 'x'
                 },
@@ -255,7 +260,7 @@ var dashboardApp = new Vue ({
                 series: [{
                     type: 'line',
                     name: 'Output',
-                    data: dashboardApp.timeSeriesData[0]
+                    data: data
                 }]
             });
         }
