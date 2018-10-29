@@ -208,20 +208,56 @@ var dashboardApp = new Vue ({
             })
         )},
         buildOutputChart: function() {
-            var outputChart = Highcharts.chart('outputChart', {
-                title: {text: 'Output Chart'},
-                yAxis: {title: {text: 'Output Generated'}},
-                xAxis: {type: 'datetime'},
-                legend: {enabled: false},
+           Highcharts.chart('outputChart', {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Output from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Output Rate'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
                 plotOptions: {
-                    series: [{
-                        type: 'line',
-                        data: dashboardApp.timeSeriesData[0].map(item => [item.dataCollectedDate, item.output])
-                    }]
-                }
-            });
-        }
-    },
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Output',
+                    data: dashboardApp.timeSeriesData[0]
+                }]
+            });    },
     created: function() {
         this.fetchClients();
     }
