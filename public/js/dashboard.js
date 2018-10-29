@@ -15,6 +15,7 @@ var openTab = function(evt, turbineID) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    console.log(turbineID);
     document.getElementById(turbineID).style.display = "block";
     evt.currentTarget.className += " active";
 }
