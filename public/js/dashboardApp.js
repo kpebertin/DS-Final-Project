@@ -98,6 +98,9 @@ var dashboardApp = new Vue ({
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
         },
+        setOnClickSD: function(sdid) {
+            return "openTabSD(event, " + sdid + ")"
+        },
         fetchNotes: function(cid) {(
             fetch('../api/clientNote.php?clientID=' + cid)
             .then( function(response) {
@@ -212,7 +215,6 @@ var dashboardApp = new Vue ({
             for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
                 data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].output)]);
             }
-            console.log(data);
             Highcharts.chart('outputChart', {
                 chart: {
                     zoomType: 'x'

@@ -101,13 +101,27 @@
                             <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontent">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-manual-padding">
                                             <h3>Turbine Information</h3>
                                             <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
                                             <p><b>Turbine Description:</b> {{activeTurbine.turbineDescription}}</p>
                                             <p><b>Capacity:</b> {{activeTurbine.capacity}}</p>
                                             <p><b>Ramp Up Time:</b> {{activeTurbine.rampUpTime}}</p>
                                             <p><b>Maintenance Interval:</b> {{activeTurbine.maintenanceInterval}}</p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 col-xl-9 col-manual-padding">
+                                            <div class="container-fluid">
+                                                <div class="row" v-if="sensorDeployed.length > 0">
+                                                    <div class="tab">
+                                                        <button class="tabLink" onclick="setOnClickSD('sensorInformation')">Sensor Information</button>
+                                                        <button class="tabLink" v-for="sd in sensorDeployed" :onclick="setOnClickSD(sd.sensorDeployedID)">Sensor {{sd.serialNumber}}</button>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-spacing" v-for="sd in sensorDeployed" :onclick="fetchSensorTimeSeries(sd.sensorDeployedID)">
+                                                        <h1>Hello World</h1>
+                                                        <p>{{sd.sensorDeployedID}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding" v-if="sensorDeployed.length > 0">
                                             <h3>Sensor Information</h3>
@@ -121,6 +135,18 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding" v-if="sensorDeployed.length > 0">
                                             <div id="outputChart"></div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding">
+                                            <div id="heatRate"></div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding">
+                                            <div id="compressorEfficiency"></div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding">
+                                            <div id="availability"></div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding">
+                                            <div id="reliability"></div>
                                         </div>
                                     </div>
                                 </div>
