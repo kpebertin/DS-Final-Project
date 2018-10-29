@@ -23,8 +23,8 @@ var openTab = function(evt, turbineID) {
 var openTabSD = function(evt, sdID) {
     var i, tabcontent, tablinks;
     
-    if(typeof sdID == 'number') {
-        dashboardApp.fetchActiveTurbine(sdID);
+    if(typeof sdID.slice(2) == 'number') {
+        dashboardApp.fetchSensorTimeSeries(sdID.slice(2));
     }
     
     tabcontent = document.getElementsByClassName("tabcontentSD");
