@@ -114,7 +114,6 @@
                                                 <div class="row" v-if="sensorDeployed.length > 0">
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                                                         <div class="tabSD">
-                                                            <button class="tabLinkSD" onclick="openTabSD(event, 'sensorInformation')">Sensor Information</button>
                                                             <button v-for="sd in sensorDeployed" class="tabLinkSD" :onclick="setOnClickSD(sd.sensorDeployedID)">Sensor {{sd.serialNumber}}</button>
                                                         </div>
                                                         <div v-for="sd in sensorDeployed" :id="setSDID(sd.sensorDeployedID)" :onclick="fetchSensorTimeSeries(sd.sensorDeployedID)">
