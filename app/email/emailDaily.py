@@ -4,12 +4,11 @@
 import smtplib
 import json
 import urllib
-import urllib2
 #######################################
 
 url = "file://email.php"
-req = urllib2.Request(url, headers={'Content-type': 'application/json'})
-response = urllib2.urlopen(req)
+req = urllib.Request(url, headers={'Content-type': 'application/json'})
+response = urllib.urlopen(req)
 the_page = response.read()
 print(the_page)
 
