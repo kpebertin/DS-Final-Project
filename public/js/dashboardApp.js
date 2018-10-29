@@ -207,7 +207,7 @@ var dashboardApp = new Vue ({
             })
         )},
         buildOutputChart: function() {
-            var myChart = Highcharts.chart('container', {
+            var myChart = Highcharts.chart('outputChart', {
                 chart: {
                     type: 'bar'
                 },
