@@ -200,6 +200,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.timeSeriesData = myJSON
+                dashboardApp.buildOutputChart();
             })
             .catch( function(err) {
                 console.log("Error fetching time series data");
@@ -207,28 +208,17 @@ var dashboardApp = new Vue ({
             })
         )},
         buildOutputChart: function() {
-            var myChart = Highcharts.chart('outputChart', {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Fruit Consumption'
-                },
-                xAxis: {
-                    categories: ['Apples', 'Bananas', 'Oranges']
-                },
-                yAxis: {
-                    title: {
-                        text: 'Fruit eaten'
-                    }
-                },
-                series: [{
-                    name: 'Jane',
-                    data: [1, 0, 4]
-                }, {
-                    name: 'John',
-                    data: [5, 7, 3]
-                }]
+            var outputChart = Highcharts.chart('outputChart', {
+                title: {text: 'Output Chart'},
+                yAxis: {title: {text: 'Output Generated'}},
+                xAxis: {type: 'datetime'},
+                legend: {enabled: false},
+                plotOptions: {
+                    series: [{
+                        type: 'line',
+                        data: dashboardApp.timeSeriesData[0].map(item => [item.dataCollectedDate, item.output])
+                    }]
+                }
             });
         }
     },

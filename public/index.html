@@ -109,12 +109,15 @@
                                             <p><b>Ramp Up Time:</b> {{activeTurbine.rampUpTime}}</p>
                                             <p><b>Maintenance Interval:</b> {{activeTurbine.maintenanceInterval}}</p>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding" v-if="sensorDeployed.length > 0">
                                             <h3>Sensor Information</h3>
                                             <div v-for="sd in sensorDeployed">
                                                 <p><b>Serial Number:</b> {{sd.serialNumber}}</p>
                                                 <p><b>Sensor Deployed Date:</b> {{sd.deployedDate}}</p>
                                             </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding" v-if="sensorDeployed.length < 1">
+                                            <h3>There are no sensors for this tubrine yet</h3>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding" v-if="sensorDeployed.length > 0">
                                             <div id="outputChart"></div>
