@@ -100,11 +100,14 @@ var dashboardApp = new Vue ({
             dashboardApp.fetchTurbinesDeployed(sid);
             initMap();
         },
+        setSDID: function(ssid) {
+            return "SD" + ssid;
+        },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
         },
         setOnClickSD: function(sdid) {
-            return "openTabSD(event, " + sdid + ")"
+            return "openTabSD(event, SD" + sdid + ")";
         },
         fetchNotes: function(cid) {(
             fetch('../api/clientNote.php?clientID=' + cid)
