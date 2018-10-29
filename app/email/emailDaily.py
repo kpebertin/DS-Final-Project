@@ -2,14 +2,16 @@
 # kelleymsis
 
 import smtplib
-import mysql.connector
+import json
+import utllib
+import urllib2
 #######################################
 
-conne = mysql.connector.connect(user='root', password='disprotek', host='localhost', database='agsSystem')
-q = ("SELECT * FROM Client;")
-cursor.execute(q)
-for row in cursor:
-	print(row)
+url = "/email.php"
+req = urllib2.Request(url, headers={'Content-type': 'application/json'})
+response = urllib2.urlopen(req)
+the_page = response.read()
+print(the_page)
 
 #######################################
 
