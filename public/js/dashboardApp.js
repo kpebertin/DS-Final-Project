@@ -101,7 +101,7 @@ var dashboardApp = new Vue ({
             initMap();
         },
         setSDID: function(ssid) {
-            return "SD" + ssid;
+            return "SD" + 'ssid';
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
