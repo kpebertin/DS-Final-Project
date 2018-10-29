@@ -116,7 +116,7 @@
                                                         <div class="tabSD">
                                                             <button v-for="sd in sensorDeployed" class="tabLinkSD" :onclick="setOnClickSD(sd.sensorDeployedID)">Sensor {{sd.serialNumber}}</button>
                                                         </div>
-                                                        <div v-for="sd in sensorDeployed" :id="setSDID(sd.sensorDeployedID)" :onclick="fetchSensorTimeSeries(sd.sensorDeployedID)">
+                                                        <div v-for="sd in sensorDeployed" class="tabcontent" :id="setSDID(sd.sensorDeployedID)" :onclick="fetchSensorTimeSeries(sd.sensorDeployedID)">
                                                             <div class="container-fluid">
                                                                 <div class="row">
                                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
