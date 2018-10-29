@@ -207,22 +207,29 @@ var dashboardApp = new Vue ({
             })
         )},
         buildOutputChart: function() {
-            Highcharts.chart(
-                'outputChart',
-                {
-                    title: {text: 'Output Chart'},
-                    xAxis: {title: {text: 'Time'}},
-                    yAxis: {title: {text: 'Output'}},
-                    legend: {enabled: false},
-                    plotOptions: {
-                        series: [{
-                            type: 'line',
-                            name: 'Output Chart 2',
-                            data: dashboardApp.timeSeriesData.map(item => [item.output])
-                        }]
+            var myChart = Highcharts.chart('container', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Fruit Consumption'
+                },
+                xAxis: {
+                    categories: ['Apples', 'Bananas', 'Oranges']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fruit eaten'
                     }
-                }
-            )
+                },
+                series: [{
+                    name: 'Jane',
+                    data: [1, 0, 4]
+                }, {
+                    name: 'John',
+                    data: [5, 7, 3]
+                }]
+            });
         }
     },
     created: function() {

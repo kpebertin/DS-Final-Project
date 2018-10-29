@@ -101,7 +101,7 @@
                             <div v-for="t in turbineDeployed" :id="t.turbineID" class="tabcontent">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding">
                                             <h3>Turbine Information</h3>
                                             <p><b>Turbine Name:</b> {{activeTurbine.turbineName}}</p>
                                             <p><b>Turbine Description:</b> {{activeTurbine.turbineDescription}}</p>
@@ -109,14 +109,14 @@
                                             <p><b>Ramp Up Time:</b> {{activeTurbine.rampUpTime}}</p>
                                             <p><b>Maintenance Interval:</b> {{activeTurbine.maintenanceInterval}}</p>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding">
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-manual-padding">
                                             <h3>Sensor Information</h3>
                                             <div v-for="sd in sensorDeployed">
                                                 <p><b>Serial Number:</b> {{sd.serialNumber}}</p>
                                                 <p><b>Sensor Deployed Date:</b> {{sd.deployedDate}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-manual-padding" v-if="sensorDeployed.length > 0">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding" v-if="sensorDeployed.length > 0">
                                             <div id="outputChart"></div>
                                         </div>
                                     </div>
@@ -172,6 +172,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/dashboard.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="js/dashboardApp.js"></script>
         <script>
             function initMap() {
@@ -183,6 +184,5 @@
             }
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmLn3qnTOlLky0fWvOcsuCrhMTLcqZd7c&callback=initMap"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
     </body>
 </html>
