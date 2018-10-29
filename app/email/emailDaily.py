@@ -7,7 +7,7 @@ import urllib
 import urllib2
 #######################################
 
-url = "/email.php"
+url = "../email/email.php"
 req = urllib2.Request(url, headers={'Content-type': 'application/json'})
 response = urllib2.urlopen(req)
 the_page = response.read()
