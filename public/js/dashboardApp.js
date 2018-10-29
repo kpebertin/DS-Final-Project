@@ -209,7 +209,7 @@ var dashboardApp = new Vue ({
         )},
         buildOutputChart: function() {
             var data = [];
-            for(var i = 0; i < dashboardApp.timeSeriesData[0].length; i++) {
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
                 data.push([dashboardApp.timeSeriesData[i].dataCollectedDate, dashboardApp.tmeSeriesData[i].output]);
             }
             console.log(data);
