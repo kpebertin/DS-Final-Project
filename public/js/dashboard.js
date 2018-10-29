@@ -36,6 +36,7 @@ var openTabSD = function(evt, sdID) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    console.log(sdID);
     document.getElementById(sdID).style.display = "block";
     evt.currentTarget.className += " active";
 }
