@@ -257,7 +257,9 @@ var dashboardApp = new Vue ({
                     name: 'Output',
                     data: dashboardApp.timeSeriesData[0]
                 }]
-            });    },
+            });
+        }
+    },
     created: function() {
         this.fetchClients();
     }
