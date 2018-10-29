@@ -210,7 +210,7 @@ var dashboardApp = new Vue ({
         buildOutputChart: function() {
             var data = [];
             for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
-                data.push([parseInt(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].output]));
+                data.push([parseInt(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].output)]);
             }
             console.log(data);
             Highcharts.chart('outputChart', {
