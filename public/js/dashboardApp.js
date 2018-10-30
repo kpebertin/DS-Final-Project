@@ -103,8 +103,29 @@ var dashboardApp = new Vue ({
         setSDID: function(ssid) {
             return "SD" + ssid;
         },
-        setSDIDtwo: function(ssid) {
-            return ssid + "SDID" + ssid;
+        setSDIDoutput: function(ssid) {
+            return ssid + "output";
+        },,
+        setSDIDheat: function(ssid) {
+            return ssid + "heat";
+        },
+        setSDIDcompressor: function(ssid) {
+            return ssid + "compressor";
+        },
+        setSDIDavail: function(ssid) {
+            return ssid + "avail";
+        },
+        setSDIDrel: function(ssid) {
+            return ssid + "rel";
+        },
+        setSDIDfired: function(ssid) {
+            return ssid + "fired";
+        },
+        setSDIDtrips: function(ssid) {
+            return ssid + "trips";
+        },
+        setSDIDstarts: function(ssid) {
+            return ssid + "starts";
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
@@ -221,7 +242,14 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.timeSeriesData = myJSON
-                dashboardApp.buildOutputChart(sid + "SDID" + sid);
+                dashboardApp.buildOutputChart(sid + "output");
+                dashboardApp.buildHeatChart(sid + "heat");
+                //dashboardApp.buildCompressorChart(sid + "compressor");
+                //dashboardApp.buildAvailableChart(sid + "avail");
+                //dashboardApp.buildReliableChart(sid + "rel");
+                //dashboardApp.buildFiredChart(sid + "fired");
+                //dashboardApp.buildTripsChart(sid + "trips");
+                //dashboardApp.buildStartsChart(sid + "starts");
             })
             .catch( function(err) {
                 console.log("Error fetching time series data");
@@ -284,7 +312,66 @@ var dashboardApp = new Vue ({
                     data: data
                 }]
             });
+        },
+        buildHeatChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].heatRate)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Output from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Heat Rate'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Heat Rate',
+                    data: data
+                }]
+            });
+
         }
+        
     },
     created: function() {
         this.fetchClients();
