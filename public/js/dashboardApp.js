@@ -103,8 +103,8 @@ var dashboardApp = new Vue ({
         setSDID: function(ssid) {
             return "SD" + ssid;
         },
-        setSDIDtwo: function(ssid, chartType) {
-            return "SDID" + ssid + chartType;
+        setSDIDtwo: function(ssid) {
+            return ssid + "SDID" + ssid;
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
@@ -221,7 +221,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.timeSeriesData = myJSON
-                dashboardApp.buildOutputChart("SDID" + sid);
+                dashboardApp.buildOutputChart(sid + "SDID" + sid);
             })
             .catch( function(err) {
                 console.log("Error fetching time series data");
@@ -233,7 +233,7 @@ var dashboardApp = new Vue ({
             for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
                 data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].output)]);
             }
-            Highcharts.chart(tsid + "output", {
+            Highcharts.chart(tsid, {
                 chart: {
                     zoomType: 'x'
                 },
