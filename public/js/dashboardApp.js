@@ -103,8 +103,8 @@ var dashboardApp = new Vue ({
         setSDID: function(ssid) {
             return "SD" + ssid;
         },
-        setSDIDtwo: function(ssid) {
-            return "SDID" + ssid;
+        setSDIDtwo: function(ssid, chartType) {
+            return "SDID" + ssid + chartType;
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
@@ -233,7 +233,7 @@ var dashboardApp = new Vue ({
             for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
                 data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].output)]);
             }
-            Highcharts.chart(tsid, {
+            Highcharts.chart(tsid + "output", {
                 chart: {
                     zoomType: 'x'
                 },
