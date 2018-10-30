@@ -243,7 +243,8 @@ var dashboardApp = new Vue ({
                 yAxis: {
                     title: {
                         text: 'Output Rate'
-                    }
+                    },
+                    min: 0
                 },
                 legend: {
                     enabled: false
