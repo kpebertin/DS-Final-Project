@@ -119,9 +119,8 @@
                                                         <div v-for="sd in sensorDeployed" class="tabcontentSD" :id="setSDID(sd.sensorDeployedID)" :onclick="fetchSensorTimeSeries(sd.sensorDeployedID)">
                                                             <div class="container-fluid">
                                                                 <div class="row">
-                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
-                                                                        <h1>Hello World</h1>
-                                                                        <p>{{sd.sensorDeployedID}}</p>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-manual-padding">
+                                                                        <div id="outputChart"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>

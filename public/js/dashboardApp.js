@@ -218,7 +218,7 @@ var dashboardApp = new Vue ({
             })
             .then( function(myJSON) {
                 dashboardApp.timeSeriesData = myJSON
-                //dashboardApp.buildOutputChart();
+                dashboardApp.buildOutputChart();
             })
             .catch( function(err) {
                 console.log("Error fetching time series data");
