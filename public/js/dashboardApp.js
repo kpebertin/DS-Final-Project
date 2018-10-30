@@ -245,7 +245,7 @@ var dashboardApp = new Vue ({
                 dashboardApp.buildOutputChart(sid + "output");
                 dashboardApp.buildHeatChart(sid + "heat");
                 dashboardApp.buildCompressorChart(sid + "compressor");
-                shboardApp.buildAvailableChart(sid + "avail");
+                dashboardApp.buildAvailableChart(sid + "avail");
                 dashboardApp.buildReliableChart(sid + "rel");
                 dashboardApp.buildFiredChart(sid + "fired");
                 dashboardApp.buildTripsChart(sid + "trips");
