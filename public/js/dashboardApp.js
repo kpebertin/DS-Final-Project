@@ -16,12 +16,12 @@ var dashboardApp = new Vue ({
         turbineDeployed: function (val) {
             setTimeout( function() {
                 dashboardApp.setTabWidth();
-            }, 500);
+            }, 250);
         },
         sensorDeployed: function (val) {
             setTimeout( function() {
                 dashboardApp.setTabWidthSD();
-            }, 500);
+            }, 250);
         }
     },
     computed: {},
