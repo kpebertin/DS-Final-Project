@@ -105,7 +105,7 @@ var dashboardApp = new Vue ({
         },
         setSDIDoutput: function(ssid) {
             return ssid + "output";
-        },,
+        },
         setSDIDheat: function(ssid) {
             return ssid + "heat";
         },
@@ -369,9 +369,7 @@ var dashboardApp = new Vue ({
                     data: data
                 }]
             });
-
-        }
-        
+        }        
     },
     created: function() {
         this.fetchClients();
