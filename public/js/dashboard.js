@@ -15,7 +15,6 @@ var openTab = function(evt, turbineID) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    console.log(turbineID);
     document.getElementById(turbineID).style.display = "block";
     evt.currentTarget.className += " active";
 }
@@ -23,8 +22,8 @@ var openTab = function(evt, turbineID) {
 var openTabSD = function(evt, sdID) {
     var i, tabcontent, tablinks;
     
-    if(typeof sdID.slice(2) == 'number') {
-        dashboardApp.fetchSensorTimeSeries(sdID.slice(2));
+    if(!isNaN(sdID.slice(2))) {
+        dashboardApp.fetchSensorTimeSeries(parseInt(sdID.slice(2)));
         console.log("Is a number");
     }
     
@@ -38,7 +37,6 @@ var openTabSD = function(evt, sdID) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    console.log(sdID);
     document.getElementById(sdID).style.display = "block";
     evt.currentTarget.className += " active";
 }
