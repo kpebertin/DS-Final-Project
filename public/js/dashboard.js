@@ -25,6 +25,7 @@ var openTabSD = function(evt, sdID) {
     
     if(typeof sdID.slice(2) == 'number') {
         dashboardApp.fetchSensorTimeSeries(sdID.slice(2));
+        console.log("Is a number");
     }
     
     tabcontent = document.getElementsByClassName("tabcontentSD");

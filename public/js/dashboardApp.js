@@ -101,14 +101,12 @@ var dashboardApp = new Vue ({
             initMap();
         },
         setSDID: function(ssid) {
-            console.log(ssid);
             return "SD" + ssid;
         },
         setOnClickTurbine: function(tid) {
             return "openTab(event, " + tid + ")";
         },
         setOnClickSD: function(sdid) {
-            console.log("setOnClickID is receiving " + sdid);
             return "openTabSD(event, 'SD" + sdid + "')";
         },
         fetchNotes: function(cid) {(
