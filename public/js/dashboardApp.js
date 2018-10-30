@@ -244,12 +244,12 @@ var dashboardApp = new Vue ({
                 dashboardApp.timeSeriesData = myJSON
                 dashboardApp.buildOutputChart(sid + "output");
                 dashboardApp.buildHeatChart(sid + "heat");
-                //dashboardApp.buildCompressorChart(sid + "compressor");
-                //dashboardApp.buildAvailableChart(sid + "avail");
-                //dashboardApp.buildReliableChart(sid + "rel");
-                //dashboardApp.buildFiredChart(sid + "fired");
-                //dashboardApp.buildTripsChart(sid + "trips");
-                //dashboardApp.buildStartsChart(sid + "starts");
+                dashboardApp.buildCompressorChart(sid + "compressor");
+                shboardApp.buildAvailableChart(sid + "avail");
+                dashboardApp.buildReliableChart(sid + "rel");
+                dashboardApp.buildFiredChart(sid + "fired");
+                dashboardApp.buildTripsChart(sid + "trips");
+                dashboardApp.buildStartsChart(sid + "starts");
             })
             .catch( function(err) {
                 console.log("Error fetching time series data");
@@ -323,7 +323,7 @@ var dashboardApp = new Vue ({
                     zoomType: 'x'
                 },
                 title: {
-                    text: 'Output from January to June'
+                    text: 'Heat Rate from January to June'
                 },
                 xAxis: {
                     type: 'datetime'
@@ -369,7 +369,349 @@ var dashboardApp = new Vue ({
                     data: data
                 }]
             });
-        }        
+        },
+        buildCompressorChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].compressorEfficiency)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Compressor Efficiency from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Compressor Efficiency'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Compressor Efficiency',
+                    data: data
+                }]
+            });
+        },
+        buildAvailableChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].availability)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Availability from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Availability'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Availability',
+                    data: data
+                }]
+            });
+        },
+        buildReliableChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].reliability)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Reliability from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Reliability'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Reliability',
+                    data: data
+                }]
+            });
+        },
+        buildFiredChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].firedHours)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Fired Hours from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fired Hours'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Fired Hours',
+                    data: data
+                }]
+            });
+        },
+        buildTripsChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].trips)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Trips from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Trips'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Trips',
+                    data: data
+                }]
+            });
+        },
+        buildStartsChart: function(tsid) {
+            var data = [];
+            for(var i = 0; i < dashboardApp.timeSeriesData.length; i++) {
+                data.push([Date.parse(dashboardApp.timeSeriesData[i].dataCollectedDate), parseInt(dashboardApp.timeSeriesData[i].starts)]);
+            }
+            Highcharts.chart(tsid, {
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Starts from January to June'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Starts'
+                    },
+                    min: 0
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'line',
+                    name: 'Starts',
+                    data: data
+                }]
+            });
+        }
     },
     created: function() {
         this.fetchClients();
