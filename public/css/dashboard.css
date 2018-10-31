@@ -20,6 +20,13 @@ table {
     width: 100%;
 }
 
+thead{
+  color:red;
+  font-weight: bold;
+  background-color: #eeeeee;
+  
+}
+
 div.clientDescription {
     border: 1px black solid;
 }
