@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8" id="nonLogoHeader">
                             <select class="clientSelector" onchange="dashboardApp.newActiveClient(this.value)">
-                                <option 
+                                <option
                                         v-for="aClient in clients"
                                         :value="aClient.clientID" class="clientSelectorContent">
                                     {{ aClient.clientName }}
@@ -39,7 +39,7 @@
                                         <div class="clientDescription">
                                             <h3 class="clientDescription">Client Description</h3>
                                             <p>{{ activeClient.clientDescription }}</p>
-                                        </div>                                    
+                                        </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-manual-padding">
                                         <table class="clientTable">
@@ -67,7 +67,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
                                         <table class="siteTable">
-                                            <thead class="siteTable">
+                                            <thead class="siteTable thead-dark">
                                                 <tr class="siteTable">
                                                     <th class="siteTable">Site Name</th>
                                                     <th class="siteTable">Site Description</th>
