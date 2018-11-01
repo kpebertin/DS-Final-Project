@@ -34,9 +34,9 @@ table {
 }
 
 thead{
-  color:red;
+  color:#132A13;
   font-weight: bold;
-  background-color: #eeeeee;
+  background-color: #F1E0C5;
 
 }
 
@@ -57,7 +57,9 @@ h3.clientDescription {
 }
 
 .tab button {
-    background-color: inherit;
+    background-color: #F1E0C5;
+    color:#132A13;
+    font-weight: bold;
     float: left;
     border: none;
     outline: none;
@@ -68,11 +70,13 @@ h3.clientDescription {
 }
 
 .tab button:hover {
-    background-color: #ddd;
+    transform: scale(1.1);
+
 }
 
 .tab button.active {
-    background-color: #ccc;
+  color: #F1E0C5;
+  background-color:#132A13;
 }
 
 .tabcontent {
@@ -83,7 +87,7 @@ h3.clientDescription {
 }
 
 .activeSite {
-    background-color: #666;
+    background-color: #F1E0C5;
 }
 
 .tabSD {
