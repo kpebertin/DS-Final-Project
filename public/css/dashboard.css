@@ -80,6 +80,8 @@ h5.clientDescription {
 
 .tab button:hover {
     transform: scale(1.1);
+    background-color:#71816D;
+color: #F1E0C5;
 
 }
 
@@ -121,6 +123,8 @@ h5.clientDescription {
 
 .tabSD button:hover {
   transform: scale(1.1);
+  background-color:#71816D;
+  color: #F1E0C5;
 }
 
 .tabSD button.active {
