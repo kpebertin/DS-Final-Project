@@ -47,7 +47,7 @@ thead{
   transition: 0.3s;
 
 }
-tbody .siteTable:hover{
+tbody td .siteTable:hover{
   transform: scale(1.1);
 
 }
