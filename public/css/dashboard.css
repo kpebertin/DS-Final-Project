@@ -48,8 +48,9 @@ thead{
 
 }
 .siteTableRow:hover{
-  transform: scale(1.1);
-
+  transform: scale(1.05);
+  background-color:#C9B79C;
+  color: #214936;
 }
 
 div.clientDescription {
