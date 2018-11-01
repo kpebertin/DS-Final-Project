@@ -1,3 +1,9 @@
+/*
+#90A955
+
+*/
+
+
 .clientSelector {
     height: 100%;
     width: 75%;
@@ -11,7 +17,9 @@
 .clientSelectorContent {
     font-size: 12pt;
 }
-
+body{
+  background-color:#90A955;
+}
 table, tr, td, th {
     border: 1px black solid;
 }
@@ -24,7 +32,7 @@ thead{
   color:red;
   font-weight: bold;
   background-color: #eeeeee;
-  
+
 }
 
 div.clientDescription {
