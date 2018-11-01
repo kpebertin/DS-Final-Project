@@ -90,20 +90,22 @@
                                                     <th class="siteTable">Site Location</th>
                                                 </tr>
                                             </thead>
+                                            <div class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
+                                              <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</span>
+                                              <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</span>
+                                              <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</span>
+                                              <span class="siteTable"<a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</span>
+                                              <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.addressCity }}, {{ s.addressState }}</span>
+
+                                            </div>
+
                                             <tbody class="siteTable">
                                                 <tr class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
-                                                      <div class="tableRow">
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</td>
-                                                      </div>
-                                                      <div class="tableRow">                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</td>
+                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</td>
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</td>
-                                                      </div>
-                                                      <div class="tableRow">
                                                     <td class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</a></td>
-                                                      </div>
-                                                      <div class="tableRow">
                                                     <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.addressCity }}, {{ s.addressState }}</td>
-                                                      </div>
                                                 </tr>
                                             </tbody>
                                         </table>
