@@ -19,6 +19,7 @@ ECF39E214936
 .clientSelectorContent {
     font-size: 12pt;
 }
+
 body{
   background-color:#71816D;
 }
@@ -39,6 +40,15 @@ thead{
   color:#214936;
   font-weight: bold;
   background-color: #F1E0C5;
+
+}
+
+.siteTable{
+  transition: 0.3s;
+
+}
+tbody .siteTable:hover{
+  transform: scale(1.1);
 
 }
 
