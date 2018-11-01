@@ -91,7 +91,7 @@
                                                 </tr>
                                             </thead>
                                             <div class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
-                                              <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</span>
+                                              <div class="siteTable" id="siteTitle" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</div>
                                               <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</span>
                                               <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</span>
                                               <span class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</a></span>
