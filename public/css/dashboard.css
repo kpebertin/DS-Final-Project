@@ -1,6 +1,8 @@
 /*
 #90A955
-ECF39E
+ECF39E214936
+214936
+214936
 */
 
 
@@ -21,7 +23,7 @@ body{
   background-color:#71816D;
 }
 header{
-  background-color: #132A13;
+  background-color: #214936;
 }
 table, tr, td, th {
     border: 1px black solid;
@@ -29,12 +31,12 @@ table, tr, td, th {
 
 table {
     width: 100%;
-    background-color: #132A13;
+    background-color: #214936;
     color: #F1E0C5;
 }
 
 thead{
-  color:#132A13;
+  color:#214936;
   font-weight: bold;
   background-color: #F1E0C5;
 
@@ -58,7 +60,7 @@ h3.clientDescription {
 
 .tab button {
     background-color: #F1E0C5;
-    color:#132A13;
+    color:#214936;
     font-weight: bold;
     float: left;
     border: none;
@@ -76,7 +78,7 @@ h3.clientDescription {
 
 .tab button.active {
   color: #F1E0C5;
-  background-color:#132A13;
+  background-color:#214936;
 }
 
 .tabcontent {
