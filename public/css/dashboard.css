@@ -51,10 +51,12 @@ thead{
 
 .siteTableRow{
   transition: 0.3s;
-  background-color: #F1E0C5;
+  background-color: #214936;
   border-color: #F1E0C5;
+  color: #F1E0C5;
   border-width: 5px;
   border-radius: 5px;
+  margin-bottom: 10px;
 
 }
 .siteTableRow:hover{
