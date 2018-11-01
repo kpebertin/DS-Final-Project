@@ -45,12 +45,14 @@ thead{
 
 .siteTableRow{
   transition: 0.3s;
+  display: block;
 
 }
 .siteTableRow:hover{
   transform: scale(1.05);
   background-color:#C9B79C;
   color: #214936;
+  display: none;
 }
 
 div.clientDescription {
