@@ -55,7 +55,10 @@ h5.clientDescription {
     text-weight: bold;
     color: #F1E0C5;
 }
-
+.desTitle{
+  color: #214936;
+  font-weight: bold;
+}
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
@@ -100,12 +103,14 @@ h5.clientDescription {
 .tabSD {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #F1E0C5;
+    color:#214936;
 }
 
 .tabSD button {
-    background-color: inherit;
-    float: left;
+  background-color: #F1E0C5;
+  color:#214936;
+      float: left;
     border: none;
     outline: none;
     cursor: pointer;
@@ -115,16 +120,18 @@ h5.clientDescription {
 }
 
 .tabSD button:hover {
-    background-color: #ddd;
+  transform: scale(1.1);
 }
 
 .tabSD button.active {
-    background-color: #ccc;
-}
+  color: #F1E0C5;
+  background-color:#214936;}
 
 .tabcontentSD {
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    background-color: #F1E0C5;
+
 }
