@@ -51,6 +51,10 @@ h3.clientDescription {
     text-weight: bold;
     color: #F1E0C5;
 }
+h5.clientDescription {
+    text-weight: bold;
+    color: #F1E0C5;
+}
 
 .tab {
     overflow: hidden;
@@ -90,6 +94,7 @@ h3.clientDescription {
 
 .activeSite {
     background-color: #F1E0C5;
+    color: #214936;
 }
 
 .tabSD {
