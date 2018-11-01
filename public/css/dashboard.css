@@ -43,11 +43,11 @@ thead{
 
 }
 
-.siteTable{
+.siteTableRow{
   transition: 0.3s;
 
 }
-tbody td .siteTable:hover{
+.siteTableRow:hover{
   transform: scale(1.1);
 
 }
