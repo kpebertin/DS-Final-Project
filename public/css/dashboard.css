@@ -60,6 +60,9 @@ thead{
   padding: 10px;
 
 }
+.siteLAbel{
+  font-weight: bold;
+}
 .siteTableRow:hover{
   transform: scale(1.05);
   background-color:#C9B79C;

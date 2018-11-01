@@ -83,10 +83,10 @@
 
                                       <div class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
                                         <div class="siteTable" id="siteTitle" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</div>
-                                        <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</span>
-                                        <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</span>
-                                        <span class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</a></span>
-                                        <span class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.addressCity }}, {{ s.addressState }}</span>
+                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</div>
+                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Contact:</span>{{ s.primaryContact }}</div>
+                                        <div class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)"><span class="siteLAbel">Email:</span>{{ s.primaryContactEmail }}</a></div>
+                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Location:</span>{{ s.addressCity }}, {{ s.addressState }}</div>
                                       </div>
                                       <!--
                                         <table class="siteTable">
