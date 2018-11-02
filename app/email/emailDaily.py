@@ -13,7 +13,7 @@ script_response = proc.stdout.read()
 
 print(script_response)
 
-die()
+quit()
 
 TO = 'kyle78@ebertinhome.net'
 SUBJECT = 'AGS Site Warning'
