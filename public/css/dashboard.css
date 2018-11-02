@@ -145,7 +145,7 @@ label {
     width: 70px;
 }
 input {
-    width: calc(100% - 70px);
+    width: calc(100% - 80px);
 }
 #formCommentName {
     height: 24px;
