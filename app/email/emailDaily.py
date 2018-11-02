@@ -11,6 +11,8 @@ import subprocess
 proc = subprocess.Popen("php email.php", shell=True, stdout=subprocess.PIPE)
 script_response = proc.stdout.read()
 
+print(script_response)
+
 for em in script_response:
 
 	TO = em['primaryContactEmail']
