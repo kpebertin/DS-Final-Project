@@ -153,3 +153,7 @@ input {
 #formCommentText {
     height: 96px;
 }
+#submitNewCommen {
+    background-color: #214936;
+    color: #F1E0C5;
+}
