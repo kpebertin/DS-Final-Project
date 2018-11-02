@@ -10,22 +10,9 @@ import subprocess
 
 proc = subprocess.Popen("php email.php", shell=True, stdout=subprocess.PIPE)
 script_response = proc.stdout.read()
-
-print(script_response)
-
 data = json.loads(script_response)
 
-print(type(data))
-print(data)
-
-quit()
-
-for em in script_response:
-
-	print("\n\n\n")
-	print(em)
-	print("\n\n\n")
-	print(type(em))
+for em in data:
 
 	TO = em['primaryContactEmail']
 	SUBJECT = 'AGS Site Warning'
