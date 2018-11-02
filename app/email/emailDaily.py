@@ -11,7 +11,12 @@ import subprocess
 proc = subprocess.Popen("php email.php", shell=True, stdout=subprocess.PIPE)
 script_response = proc.stdout.read()
 
-print(script_response[0:5])
+print(script_response)
+
+data = json.loads(script_response)
+
+print(type(data))
+print(data)
 
 quit()
 
