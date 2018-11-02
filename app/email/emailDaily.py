@@ -11,7 +11,7 @@ import subprocess
 proc = subprocess.Popen("php email.php", shell=True, stdout=subprocess.PIPE)
 script_response = proc.stdout.read()
 
-print(type(script_response))
+print(script_response[0:5])
 
 quit()
 
