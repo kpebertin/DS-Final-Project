@@ -4,19 +4,20 @@
 import smtplib
 import json
 import urllib
-#######################################
-
-# url = "file://email.php"
-# req = urllib.Request(url, headers={'Content-type': 'application/json'})
-# response = urllib.urlopen(req)
-# the_page = response.read()
-# print(the_page)
+import subprocess
 
 #######################################
+
+proc = subprocess.Popen("php email.php", shell=True, stdout=subprocess.PIPE)
+script_response = proc.stdout.read()
+
+print(script_response)
+
+die()
 
 TO = 'kyle78@ebertinhome.net'
-SUBJECT = 'TEST MAIL'
-TEXT = 'Here is a message from python.'
+SUBJECT = 'AGS Site Warning'
+TEXT = 'Sensor(s) have determined that a turbine at your site is not performing optimally. Please review the site online at: http://ec2-18-222-172-105.us-east-2.compute.amazonaws.com/.'
 
 # Gmail Sign In
 gmail_sender = 'agsproject1@gmail.com'
