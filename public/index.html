@@ -33,85 +33,28 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-6 col-manual-padding">
-                          <!--
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-manual-padding">
-                                    -->
-
-                                        <div class="clientDescription" style="margin-top:20px">
-                                            <h3 class="clientDescription">Client Description</h3>
-                                            <p>{{ activeClient.clientDescription }}</p>
-                                        </div>
-                                        <div class="clientDescription">
-                                            <h5 class="clientDescription"><span class="desTitle">GICS Sector:</span> {{ activeClient.gicsSector }}</h5>
-                                            <h5 class="clientDescription"><span class="desTitle">GICS Sub-Industry:</span> {{ activeClient.gicsSubIndustry }}</h5>
-                                            <h5 class="clientDescription"><span class="desTitle">Company HQ:</span> {{ activeClient.companyHeadquartersCity }}, {{ activeClient.companyHeadquartersState }}</h5>
-
-                                        </div>
-                                        <!--
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-manual-padding">
-                                    -->
-                                    <!--
-                                        <table class="clientTable">
-                                            <tbody class="clientTable">
-                                                <tr class="clientTable">
-                                                    <th class="clientTable">GICS Sector</th>
-                                                    <td class="clientTable">{{ activeClient.gicsSector }}</td>
-                                                </tr>
-                                                <tr class="clientTable">
-                                                    <th class="clientTable">GICS Sub-Industry</th>
-                                                    <td class="clientTable">{{ activeClient.gicsSubIndustry }}</td>
-                                                </tr>
-                                                <tr class="clientTable">
-                                                    <th class="clientTable">Company HQ</th>
-                                                    <td class="clientTable">{{ activeClient.companyHeadquartersCity }}, {{ activeClient.companyHeadquartersState }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                      -->
-                                        <!--
-                                    </div>
-                                </div>
+                            <div class="clientDescription" style="margin-top:20px">
+                                <h3 class="clientDescription">Client Description</h3>
+                                <p>{{ activeClient.clientDescription }}</p>
                             </div>
-                          -->
+                            <div class="clientDescription">
+                                <h5 class="clientDescription"><span class="desTitle">GICS Sector:</span> {{ activeClient.gicsSector }}</h5>
+                                <h5 class="clientDescription"><span class="desTitle">GICS Sub-Industry:</span> {{ activeClient.gicsSubIndustry }}</h5>
+                                <h5 class="clientDescription"><span class="desTitle">Company HQ:</span> {{ activeClient.companyHeadquartersCity }}, {{ activeClient.companyHeadquartersState }}</h5>
+                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xl-6 col-manual-padding">
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-manual-padding">
-                                      <h3 class="clientDescription">Client Sites</h3>
-
-                                      <div class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
-                                        <div class="siteTable" id="siteTitle" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</div>
-                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</div>
-                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Contact: </span>{{ s.primaryContact }}</div>
-                                        <div class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)"><span class="siteLAbel">Email: </span>{{ s.primaryContactEmail }}</a></div>
-                                        <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Location: </span>{{ s.addressCity }}, {{ s.addressState }}</div>
-                                      </div>
-                                      <!--
-                                        <table class="siteTable">
-                                            <thead class="siteTable">
-                                                <tr class="siteTable">
-                                                    <th class="siteTable">Site Name</th>
-                                                    <th class="siteTable">Site Description</th>
-                                                    <th class="siteTable">Contact</th>
-                                                    <th class="siteTable">Contact Email</th>
-                                                    <th class="siteTable">Site Location</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="siteTable">
-                                                <tr class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
-                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</td>
-                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</td>
-                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.primaryContact }}</td>
-                                                    <td class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)">{{ s.primaryContactEmail }}</a></td>
-                                                    <td class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.addressCity }}, {{ s.addressState }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                      -->
+                                        <h3 class="clientDescription">Client Sites</h3>
+                                        <div class="siteTableRow" v-for="s in sites" :id="s.siteIDTwo">
+                                            <div class="siteTable" id="siteTitle" @click="setNewActiveSite(s.siteID, null)">{{ s.siteName }}</div>
+                                            <div class="siteTable" @click="setNewActiveSite(s.siteID, null)">{{ s.siteDescription }}</div>
+                                            <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Contact: </span>{{ s.primaryContact }}</div>
+                                            <div class="siteTable"><a v-bind:href="emailLink(s.primaryContactEmail)"><span class="siteLAbel">Email: </span>{{ s.primaryContactEmail }}</a></div>
+                                            <div class="siteTable" @click="setNewActiveSite(s.siteID, null)"><span class="siteLAbel">Location: </span>{{ s.addressCity }}, {{ s.addressState }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
